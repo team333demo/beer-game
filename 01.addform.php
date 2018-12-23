@@ -5,7 +5,7 @@
 <title>input form</title>
 </head>
 <body>
-<p>my guest book !! </p>
+<p>add new team !! </p>
 <hr />
 
 <table width="200" border="1">
@@ -14,15 +14,15 @@
 	  <td>player</td>
 
   </tr>
-  <tr><form method="post" action="indexView.php">
+  <tr><form method="post" action="01.insert.php">
     <td><label>
-      <input name="title" type="text" id="title" />
+      <input name="team" type="text" id="title" />
     </label></td>
     
 
     <td><label>
 	
-	  <select name="category">
+	  <select name="player">
       <option  value="factory">Factory</option>
       <option  value="distributor">Distributor</option>
       <option  value="wholesaler">Wholesaler</option>
