@@ -42,7 +42,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
     echo"<td>" , $rs['ord'],"</td>";
     echo"<td>" , $rs['arrival'],"</td>";
     echo"<td>" , $rs['cost'],"</td>";
-    echo"<td>" , $rs['cost'],"</td></tr>";
+    echo"<td>" , $total,"</td></tr>";
 }
 
 ?>
