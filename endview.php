@@ -29,7 +29,7 @@ echo ("</script>");
 
 <body>
 
-<p>my garbage 軟工 !! <a href="01.addform.php">新增隊伍</a>　　排行榜</p>
+<p>my garbage 軟工 !! 　　統計圖表 參與紀錄 排行榜</p>
 <hr />
 <table width="200" border="1" class="">
   <tr>
@@ -38,7 +38,8 @@ echo ("</script>");
     <td>Distributer</td>
     <td>Wholesaler</td>
 	<td>Retailer</td>
-	<td>狀態</td>
+	<td>成本加總</td>
+	<td>排名</td>
   </tr>
   
 <?php
@@ -81,7 +82,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 // echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
 } 
 ?>
-</table>
 
+</table>
+<p> <a href="IndexView.php">回到首頁</a></p>
 </body>
 </html>
