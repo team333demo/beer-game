@@ -2,12 +2,28 @@
 require("dbconfig.php");
 // checkLogin();
 ?>
+<?php 
+echo "當前時間：";
+echo "";
+//echo time();
+//echo "<br>";
+echo date("Y-m-d H:i:s",time());
+echo "<br>";
+echo ("<script type=\"text/javascript\">");
+echo ("function fresh_page()"); 
+echo ("{");
+echo ("window.location.reload();");
+echo ("}"); 
+echo ("setTimeout('fresh_page()',1000);"); 
+echo ("</script>");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
 <link rel="stylesheet" type="text/css" href="main.css">
+
 </head>
 
 <body>
@@ -23,6 +39,7 @@ require("dbconfig.php");
 	<td>Retailer</td>
 	<td>狀態</td>
   </tr>
+  
 <?php
 
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
@@ -61,8 +78,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 // echo "<td><a href='05.like.php?id=$id'>讚($likes)</a>";
 // echo " - <a href='03.delete.php?id=$id'>刪</a>";
 // echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
-
-}
+} 
 ?>
 </table>
 
