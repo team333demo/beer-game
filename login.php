@@ -1,19 +1,19 @@
 <?php
 require_once("dbconfig.php");
-function login($id, $pwd) 
+function login($uid, $pwd) 
 {
     global $db;
-    $_SESSION['uID'] = 0;
+    $_SESSION['uid'] = 0;
 	$_SESSION['role'] = '';
-    if ($id> " ") {
+    if ($uid> " ") {
         $sql = "select * from user where loginID=? and password=?";
         $stmt = mysqli_prepare($db, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $id, $pwd);
+        mysqli_stmt_bind_param($stmt, "ss", $uid, $pwd);
         mysqli_stmt_execute($stmt); //執行SQL
         $result = mysqli_stmt_get_result($stmt); 
         $r=mysqli_fetch_assoc($result);
         if($r) {
-			$_SESSION['uID'] = $r['uid'];
+			$_SESSION['uid'] = $r['uid'];
 			$_SESSION['role'] = $r['role'];
             return 1;
         } else {
@@ -30,15 +30,21 @@ function getRole()
 
 function getCurrentUser() 
 {
-    return $_SESSION['uID'];
+    return $_SESSION['uid'];
 }
 ?>
 <?php
-$userName = $_POST['id'];
+
+$userName = $_POST['uid'];
 $passWord = $_POST['pwd'];
+$r=$_GET['role'];
 if (login($userName, $passWord)==1) {
-    header("Location: indexView.php" );
+    if(getRole()=="0"){
+        header("Location: indexView.php" );
+    }else{
+        header("Location: adminView.php");
+    }
 } else {
-    header("Location: loginView.php");
+    header("Location: login.php");
 }
 ?>
