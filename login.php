@@ -37,7 +37,7 @@ function getCurrentUser()
 $userName = $_POST['id'];
 $passWord = $_POST['pwd'];
 if (login($userName, $passWord)==1) {
-    header("Location: " );
+    header("Location: 01.addform.php" );
 } else {
     header("Location: loginView.php");
 }
