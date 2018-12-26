@@ -3,7 +3,7 @@ require_once("dbconfig.php");
 function login($uid, $pwd) 
 {
     global $db;
-    $_SESSION['uid'] =0;
+    $_SESSION['uid'] ="";
 	$_SESSION['role'] = '';
     if ($uid> " ") {
         $sql = "select * from user where uid=? and pwd=?";
@@ -33,7 +33,7 @@ function getCurrentUser()
 }
 ?>
 <?php
-$userName = $_POST['uid'];
+$userName = $_POST['id'];
 $passWord = $_POST['pwd'];
 $r=$_GET['role'];
 if (login($userName, $passWord)==1) {
@@ -42,7 +42,8 @@ if (login($userName, $passWord)==1) {
     }else{
         header("Location: adminView.php");
     }
-} else {
-    header("Location: indexView.php");
-}
+
+}else{
+        header("Location: loginView.php");
+    }
 ?>
