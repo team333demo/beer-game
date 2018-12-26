@@ -3,10 +3,10 @@ require_once("dbconfig.php");
 function login($uid, $pwd) 
 {
     global $db;
-    $_SESSION['uid'] = 0;
+    $_SESSION['uid'] =0;
 	$_SESSION['role'] = '';
     if ($uid> " ") {
-        $sql = "select * from user where loginID=? and password=?";
+        $sql = "select * from user where uid=? and pwd=?";
         $stmt = mysqli_prepare($db, $sql);
         mysqli_stmt_bind_param($stmt, "ss", $uid, $pwd);
         mysqli_stmt_execute($stmt); //執行SQL
@@ -20,7 +20,6 @@ function login($uid, $pwd)
             return 0;
         } 
     } 
-    return 0;
 }
 
 function getRole() 
@@ -34,7 +33,6 @@ function getCurrentUser()
 }
 ?>
 <?php
-
 $userName = $_POST['uid'];
 $passWord = $_POST['pwd'];
 $r=$_GET['role'];
@@ -45,6 +43,6 @@ if (login($userName, $passWord)==1) {
         header("Location: adminView.php");
     }
 } else {
-    header("Location: login.php");
+    header("Location: indexView.php");
 }
 ?>
