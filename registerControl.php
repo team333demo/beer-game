@@ -19,20 +19,28 @@ if ($_FILES["img"]["size"] > 0 ) {
          // 圖片檔案資料編碼
          $fileContents = base64_encode($fileContents);
 }
-// 檢查ID是否存在
-$sql = "SELECT uid FROM user where uid ='".$userID."'";
+
+$sqluid = "SELECT uid FROM user where uid ='".$userID."'";
 //$sql = "SELECT * FROM user WHERE loginID='" . $userName . "' AND password= '" . $passWord . "'";
-if ($result = mysqli_query($db,$sql)) {
+$sqluname = "SELECT uname FROM user where uname ='".$userName."'";
+// 檢查ID是否存在
+if ($result = mysqli_query($db,$sqluid)) {
     if ($row=mysqli_fetch_array($result)) {
         echo "帳號已存在!!";
         exit(0);
-    } else {
-        $sql = "INSERT INTO user(uid, pwd, uname, role, pic, score) VALUES (?, ?, ?, 1,'". $fileContents."', 0)";
-        $stmt = mysqli_prepare($db, $sql); //prepare sql statement
-        mysqli_stmt_bind_param($stmt, "sss", $userID, $passWord,$userName); //bind parameters with variables
-        mysqli_stmt_execute($stmt);  //執行SQL
-        echo "註冊完成";
     }
-}
+    if ($result = mysqli_query($db,$sqluname)) {
+        if ($row=mysqli_fetch_array($result)) {
+            echo "名稱已存在!!";
+            exit(0);
+        } else {
+            $sql = "INSERT INTO user(uid, pwd, uname, role, pic, score) VALUES (?, ?, ?, 0,'". $fileContents."', 0)";
+            $stmt = mysqli_prepare($db, $sql); //prepare sql statement
+            mysqli_stmt_bind_param($stmt, "sss", $userID, $passWord,$userName); //bind parameters with variables
+                mysqli_stmt_execute($stmt);  //執行SQL
+            echo "註冊完成";
+        }
+    } 
+} 
 
 ?>
