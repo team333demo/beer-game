@@ -1,5 +1,6 @@
 <?php
 require("dbconfig.php");
+require_once("loginModel.php");
 // checkLogin();
 ?>
 <?php 
@@ -22,7 +23,7 @@ echo ("</script>");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>無標題文件</title>
+<title>indexView</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 
 </head>
@@ -42,7 +43,8 @@ echo ("</script>");
   </tr>
   
 <?php
-
+// echo getCurrentUser(); 
+echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '">修改玩家資料</a>';
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
@@ -79,6 +81,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 // echo "<td><a href='05.like.php?id=$id'>讚($likes)</a>";
 // echo " - <a href='03.delete.php?id=$id'>刪</a>";
 // echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
+
 } 
 ?>
 </table>
