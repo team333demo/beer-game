@@ -3,5 +3,5 @@
 User Name: <input type="text" name="id"><br />
 Password : <input type="password" name="pwd"><br />
 <input type="submit">
-<td><a href='register.html'>註冊</a>;
+<td><a href='registerView.php'>註冊</a>;
 </form>
