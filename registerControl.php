@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+<title>註冊</title>
+<style type="text/css">
+table {
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+th {
+    font-family: "微軟正黑體";
+    font-size: 50px;
+}
+td {
+    font-family: 'VT323', monospace;
+    font-size: 40px;
+}
+</style>
+
+</head>
+<body>
 <?php
 require("dbconfig.php");
 $userID = $_POST['uid'];
@@ -26,23 +51,57 @@ $sqluname = "SELECT uname FROM user where uname ='".$userName."'";
 // 檢查ID是否存在
 if ($result = mysqli_query($db,$sqluid)) {
     if ($row=mysqli_fetch_array($result)) {
-        echo "帳號已存在!!";
+        ?>
+        <table>
+            <tr>
+                <th>帳號已存在!! <?php header( "refresh:5;url=registerView.php" );?> </th>
+            </tr>
+            <tr>
+                <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
+            </tr>
+        </table>
+        <!-- echo "帳號已存在!!"; -->
+        <?php
         exit(0);
     }
     if ($result = mysqli_query($db,$sqluname)) {
         if ($row=mysqli_fetch_array($result)) {
-            echo "名稱已存在!!";
+            ?>
+            
+            <table>
+                <tr>
+                    <th>名稱已存在!! <?php header( "refresh:5;url=registerView.php" );?> </th>
+                </tr>
+                <tr>
+                    <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
+                </tr>
+            </table>
+            <!-- echo "名稱已存在!!"; -->
+            <?php
             exit(0);
         } else {
             $sql = "INSERT INTO user(uid, pwd, uname, role, pic, score) VALUES (?, ?, ?, 0,'". $fileContents."', 0)";
             $stmt = mysqli_prepare($db, $sql); //prepare sql statement
             mysqli_stmt_bind_param($stmt, "sss", $userID, $passWord,$userName); //bind parameters with variables
-                mysqli_stmt_execute($stmt);  //執行SQL
-            echo "註冊完成";
+            mysqli_stmt_execute($stmt);  //執行SQL
+            ?>
+
+            <!-- echo "註冊完成";
             header( "refresh:5;url=loginView.php" ); 
-            echo '<br/>You\'ll be redirected in about 5 secs. If not, click <a href="loginView.php">here</a>.';
+            echo '<br/>You\'ll be redirected in about 5 secs. If not, click <a href="loginView.php">here</a>.'; -->
+            <table>
+                <tr>
+                    <th>註冊完成!! <?php header( "refresh:5;url=loginView.php" );?> </th>
+                </tr>
+                <tr>
+                    <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='loginView.php'>"?>here</a>.</td>
+                </tr>
+            </table>
+<?php
         }
     } 
 } 
 
 ?>
+</body>
+</html>
