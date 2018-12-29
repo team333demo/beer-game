@@ -39,6 +39,8 @@ if ($result = mysqli_query($db,$sqluid)) {
             mysqli_stmt_bind_param($stmt, "sss", $userID, $passWord,$userName); //bind parameters with variables
                 mysqli_stmt_execute($stmt);  //執行SQL
             echo "註冊完成";
+            header( "refresh:5;url=loginView.php" ); 
+            echo '<br/>You\'ll be redirected in about 5 secs. If not, click <a href="loginView.php">here</a>.';
         }
     } 
 } 
