@@ -32,9 +32,11 @@ th {
 }
 input {
     height: 40px;
+    font-size: 20px;
 }
 #preview_img {
     text-align:center;
+    object-fit: contain;
 }
 
 </style>
@@ -50,7 +52,7 @@ input {
     <tr>
         <td rowspan = "4">
             <img id="preview_img" width="450" height="450" src="#" /><br />
-            upload picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img" accept="image/gif, image/jpeg" required="required">
+            upload picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img" accept="image/gif, image/jpeg, image/png" required="required">
         </td>
         <th>
             User ID:　<input type="text" id="uid" name="uid" size="20" maxlength="15" placeholder="Your ID(maxlength:15)" required="required"/><br />

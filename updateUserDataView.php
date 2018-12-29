@@ -42,6 +42,9 @@ input {
     position: relative;
     top: 17px;
 }
+#preview_img {
+    object-fit: contain;
+}
 
 </style>
 
@@ -72,10 +75,10 @@ if ($rs = mysqli_fetch_array($result)) {
         <?php
             $img=$rs["pic"];
             $logodata = $img;
-            echo '<img width="450" height="450" src="data:'.'jpeg'.';base64,' . $logodata . '" /></br>';
+            echo '<img id="preview_img" width="450" height="450" src="data:'.'jpeg'.';base64,' . $logodata . '" /></br>';
         ?>
             <!-- <img id="preview_img" width="450" height="450" src="#" /><br /> -->
-            change picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img"  value="<?php echo $rs['pic']; ?>" accept="image/gif, image/jpeg" >
+            change picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img"  value="<?php echo $rs['pic']; ?>" accept="image/gif, image/jpeg, image/png" >
             <!-- change picture:　<a href = "choosePicView.php"><img id = "change" src = "icon/settings_file.gif" > </a> -->
         </td>
         <th>
