@@ -1,6 +1,7 @@
 <?php
 require("dbconfig.php");
 require_once("loginModel.php");
+$user = getCurrentUserName() ;
 // checkLogin();
 ?>
 <?php 
@@ -29,7 +30,8 @@ echo ("</script>");
 </head>
 
 <body>
-
+<br>
+<?php echo $user; ?><br>
 <p>my garbage 軟工 !! <a href="01.addform.php">新增隊伍</a>　　排行榜</p>
 <hr />
 <table width="200" border="1" class="">
