@@ -18,8 +18,8 @@ require_once("fOrderView.php");
 <p>Factory </p>
 <hr />
 <form method = "POST" action = "factoryOrder.php">
-	<input type = "hidden" name="opr" value="reset"/>
-	<input type = "submit" value = "重置"> 
+    <input type = "hidden" name="opr" value="reset"/>
+    <input type = "submit" value = "重置"> 
 </form>
 <table width="200" border="1" class="" >
   <tr>
@@ -27,24 +27,24 @@ require_once("fOrderView.php");
     <td>到貨量</td>
     <td>庫存量</td>
     <td>需求量</td>
-	<td>訂貨量</td>
-	<td>當期成本</td>
-	<td>成本累計</td>
+    <td>訂貨量</td>
+    <td>當期成本</td>
+    <td>成本累計</td>
   </tr>
   
 <?php
 $total = 0;
 $currPeriod = 0;
 $result = orderlist();
-while (	$rs = mysqli_fetch_assoc($result)) {
+while ( $rs = mysqli_fetch_assoc($result)) {
     
-	$total = $total + $rs['cost'];
-	$currPeriod = $rs['period'];
-	echo "<tr><td>" , $rs['period'],"</td>";
-	echo"<td>" , $rs['arrival'],"</td>";
-	echo"<td>" , $rs['stock'],"</td>";
-	echo"<td>" , "需求量","</td>";
-	echo"<td>" , $rs['ord'],"</td>";
+    $total = $total + $rs['cost'];
+    $currPeriod = $rs['period'];
+    echo "<tr><td>" , $rs['period'],"</td>";
+    echo"<td>" , $rs['arrival'],"</td>";
+    echo"<td>" , $rs['stock'],"</td>";
+    echo"<td>" , "需求量","</td>";//需求量=下游訂單
+    echo"<td>" , $rs['ford'],"</td>";
     echo"<td>" , $rs['cost'],"</td>";
     echo"<td>" , $total, "</td></tr>";
     }
@@ -52,11 +52,11 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 </table>
 
 <hr/>
-	<form method = "POST" action = "factoryOrder.php">
-		<input type = "hidden" name="curr" value="<?php echo $currPeriod ?>"/>
-		<input type = "hidden" name="opr" value="play"/>
-		<input type = "text" name = "num"><br>
-		<input type = "submit" value = "下單"> 
-	</form>
+    <form method = "POST" action = "factoryOrder.php">
+        <input type = "hidden" name="curr" value="<?php echo $currPeriod ?>"/>
+        <input type = "hidden" name="opr" value="play"/>
+        <input type = "text" name = "num"><br>
+        <input type = "submit" value = "下單"> 
+    </form>
 </body>
 </html>

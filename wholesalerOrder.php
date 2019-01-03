@@ -1,18 +1,18 @@
 <?php
 require_once("wOrderView.php");
+$period=$_POST["curr"];
 $opr = $_POST["opr"];
-$curr = (int)$_POST["curr"];
 $num = (int)$_POST["num"];
 switch($opr){
     case "reset":
         init();
+		
         break;
     case "play":
-        period();
-        addOrder($num,$curr);
+		update($num,$period);
+        addOrder($period+1);
         break;
 }
 header("Location: wholesaler.php");
-
  
 ?>

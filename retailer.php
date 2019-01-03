@@ -43,8 +43,8 @@ while ( $rs = mysqli_fetch_assoc($result)) {
     echo "<tr><td>" , $rs['period'],"</td>";
     echo"<td>" , $rs['arrival'],"</td>";
     echo"<td>" , $rs['stock'],"</td>";
-    echo"<td>" , "需求量","</td>";
-    echo"<td>" , $rs['ord'],"</td>";
+    echo"<td>" , "需求量","</td>";//需求量=下游訂單
+    echo"<td>" , $rs['rord'],"</td>";
     echo"<td>" , $rs['cost'],"</td>";
     echo"<td>" , $total, "</td></tr>";
     }
