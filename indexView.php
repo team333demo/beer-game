@@ -1,7 +1,7 @@
 <?php
 require("dbconfig.php");
 require_once("loginModel.php");
-$user = getCurrentUserName() ;
+$uname = getCurrentUserName() ;
 // checkLogin();
 ?>
 <?php 
@@ -17,7 +17,7 @@ echo ("function fresh_page()");
 echo ("{");
 echo ("window.location.reload();");
 echo ("}"); 
-echo ("setTimeout('fresh_page()',1000);"); 
+echo ("setTimeout('fresh_page()',10000);"); 
 echo ("</script>");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -31,7 +31,7 @@ echo ("</script>");
 
 <body>
 <br>
-<?php echo $user; ?><br>
+<?php echo $uname; ?><br>
 <p>my garbage 軟工 !! <a href="01.addform.php">新增隊伍</a>　　排行榜</p>
 <hr />
 <table width="200" border="1" class="">
@@ -53,30 +53,31 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
 
 while (	$rs = mysqli_fetch_assoc($result)) {
-	
+    $id=$rs['Tid'];
+    // $role = 0;
 	echo "<tr><td>" , $rs['tname'],"</td>";
 	if($rs['factory'] != NULL)
 		echo"<td>" , $rs['factory'],"</td>";
     else 
-        echo"<td>join</td>";
+        echo"<td><a href='join.php ?Tid=$id&role=1'>join</a></td>";
 	if($rs['distributor'] != NULL)
 		echo"<td>" , $rs['distributor'],"</td>";
     else 
-        echo"<td>join</td>";
+        echo"<td><a href='join.php ?Tid=$id&role=2'>join</a></td>";
     if($rs['wholesaler'] != NULL)
 		echo"<td>" , $rs['wholesaler'],"</td>";
     else 
-        echo"<td>join</td>";
+        echo"<td><a href='join.php ?Tid=$id&role=3'>join</a></td>";
     if($rs['retailer'] != NULL)
 		echo"<td>" , $rs['retailer'],"</td>";
     else 
-        echo"<td>join</td>";
+        echo"<td><a href='join.php ?Tid=$id&role=4'>join</a></td>";
     if($rs['status'] != NULL)
         echo"<td>" , $rs['status'],"</td>";
     else 
         echo"<td></td>";
     
-	$id=$rs['Tid'];
+	
 //$category=$rs['category'];
 // $likes=$rs['likes'];
 //echo '<td><a href="03.delete.php?id=', $rs['id'], '">刪</a> </td></tr>';
