@@ -6,7 +6,7 @@ function init(){
 	$sql = "TRUNCATE TABLE distributor;";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
-	$sql = "INSERT INTO distributor(`tid`,`ord`,`period`,`stock`,`arrival`,`cost`) values (0,0,0,15,0,0);";
+	$sql = "INSERT INTO distributor(`tid`,`dord`,`period`,`stock`,`arrival`,`cost`) values (0,0,0,15,0,0);";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
 	addOrder(1);
@@ -22,7 +22,7 @@ function addOrder($period){ //新增一行 空白資料
 }
 function update($ord,$period){ 
 	global $db;	
-	$sql ="update distributor set ord = ? where period = ?" ;	
+	$sql ="update distributor set dord = ? where period = ?" ;	
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "ii",$ord,$period);
 	mysqli_stmt_execute($stmt);
@@ -30,7 +30,7 @@ function update($ord,$period){
 }
 function orderlist(){
 	global $db;
-	$sql = "select * from `distributor`";
+	$sql = "select distributor.*,wholesaler.word from `distributor`,wholesaler where distributor.period = wholesaler.period";
 	$stmt = mysqli_prepare($db, $sql );
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);

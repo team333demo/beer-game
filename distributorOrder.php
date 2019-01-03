@@ -14,6 +14,5 @@ switch($opr){
         break;
 }
 header("Location: distributor.php");
-
  
 ?>

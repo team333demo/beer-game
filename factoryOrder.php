@@ -6,7 +6,6 @@ $num = (int)$_POST["num"];
 switch($opr){
     case "reset":
         init();
-		
         break;
     case "play":
 		update($num,$period);

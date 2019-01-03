@@ -30,7 +30,7 @@ function update($ord,$period){
 }
 function orderlist(){
 	global $db;
-	$sql = "select * from `wholesaler`";
+	$sql = "select wholesaler.*,retailer.rord from `wholesaler`,retailer where wholesaler.period = retailer.period";
 	$stmt = mysqli_prepare($db, $sql );
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);

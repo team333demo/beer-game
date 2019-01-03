@@ -30,10 +30,14 @@ function update($ord,$period){
 }
 function orderlist(){
 	global $db;
-	$sql = "select * from `factory`";
+	$sql = "select factory.*,distributor.dord from `factory`,distributor where factory.period = distributor.period";
 	$stmt = mysqli_prepare($db, $sql );
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	return $result;
+}
+function getdemand(){
+	global $db;
+
 }
 ?>
