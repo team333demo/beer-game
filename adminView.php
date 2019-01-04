@@ -53,6 +53,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<a href ='startgame.php'>開始遊戲</a>
+<a href ='startgame.php'>開始遊戲</a>　
+<a href ='history.php'>歷史隊伍</a>
 </body>
 </html>
