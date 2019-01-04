@@ -6,7 +6,7 @@ function init(){
 	$sql = "TRUNCATE TABLE factory;";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
-	$sql = "INSERT INTO factory(`tid`,`ford`,`period`,`stock`,`arrival`,`cost`) values (0,0,0,15,0,0);";
+	$sql = "INSERT INTO factory(`tid`,`ford`,`period`,`stock`,`arrival`,`cost`,`fstat`) values (0,0,0,15,0,0,1);";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
 	addOrder(1);
@@ -22,7 +22,7 @@ function addOrder($period){ //新增一行 空白資料
 }
 function update($ord,$period){ 
 	global $db;	
-	$sql ="update factory set ford = ? where period = ?" ;	
+	$sql ="update factory set ford = ? , fstat = 1 where period = ?" ;	
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "ii",$ord,$period);
 	mysqli_stmt_execute($stmt);
