@@ -14,7 +14,8 @@ require("dbconfig.php");
 
 <p>my garbage 軟工 !!</p>
 <hr />
-<table width="200" border="1" class="">
+<a href="">  </a>
+<table width="500" border="1" class="">
   <tr>
     <td>隊伍名稱</td>
     <td>Factory</td>
@@ -22,6 +23,8 @@ require("dbconfig.php");
     <td>Wholesaler</td>
 	<td>Retailer</td>
 	<td>狀態</td>
+    <td>設定需求</td>   
+    <td>設定需求狀態</td>  
   </tr>
 <?php
 
@@ -31,30 +34,17 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
 
 while (	$rs = mysqli_fetch_assoc($result)) {
-	
+	$Tid = $rs['Tid'];
 	echo "<tr><td>" , $rs['tname'],"</td>";
-	if($rs['factory'] != NULL)
-		echo"<td>" , $rs['factory'],"</td>";
-    else 
-        echo"<td>join</td>";
-	if($rs['distributor'] != NULL)
-		echo"<td>" , $rs['distributor'],"</td>";
-    else 
-        echo"<td>join</td>";
-    if($rs['wholesaler'] != NULL)
-		echo"<td>" , $rs['wholesaler'],"</td>";
-    else 
-        echo"<td>join</td>";
-    if($rs['retailer'] != NULL)
-		echo"<td>" , $rs['retailer'],"</td>";
-    else 
-        echo"<td>join</td>";
-    if($rs['status'] != NULL)
-        echo"<td>" , $rs['status'],"</td>";
-    else 
-        echo"<td></td>";
+	echo"<td>" , $rs['factory'],"</td>";
+	echo"<td>" , $rs['distributor'],"</td>";
+	echo"<td>" , $rs['wholesaler'],"</td>";
+	echo"<td>" , $rs['retailer'],"</td>";     
+    echo"<td>" , $rs['status'],"</td>";
+    echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
+    echo"<td>" , $rs['demandstatus'],"</td>";
     
-	$id=$rs['Tid'];
+	// $id=$rs['Tid'];
 //$category=$rs['category'];
 // $likes=$rs['likes'];
 //echo '<td><a href="03.delete.php?id=', $rs['id'], '">刪</a> </td></tr>';
@@ -65,6 +55,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-
+<a href ='startgame.php'>開始遊戲</a>
 </body>
 </html>
