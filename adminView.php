@@ -1,5 +1,7 @@
 <?php
 require("dbconfig.php");
+require_once("loginModel.php");
+$uname = getCurrentUserName() ;
 // checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,7 +13,7 @@ require("dbconfig.php");
 </head>
 
 <body>
-
+<?php echo $uname; ?>
 <p>my garbage 軟工 !!</p>
 <hr />
 <a href="">  </a>
@@ -55,6 +57,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<a href ='startgame.php'>開始遊戲</a>
+<a href ='startgame.php'>開始遊戲</a>　
+<a href ='history.php'>歷史隊伍</a>
 </body>
 </html>
