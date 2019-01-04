@@ -36,8 +36,22 @@ function orderlist(){
 	$result = mysqli_stmt_get_result($stmt);
 	return $result;
 }
-function getdemand(){
-	global $db;
-
+function period() {
+    global $db;
+    $sql = "select max(period) as currPeriod from factory where 1";
+    $stmt = mysqli_prepare($db, $sql);
+    mysqli_stmt_execute($stmt); //執行SQL
+    $result = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt)); 
+    $period = $result['currPeriod'];
+    return $period;
+}
+function checkstat() {
+    global $db;
+    $sql = "select max(dstat) as currstat from distributor where 1";
+    $stmt = mysqli_prepare($db, $sql);
+    mysqli_stmt_execute($stmt); //執行SQL
+    $result = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt)); 
+    $stat = $result['currstat'];
+    return $stat;
 }
 ?>

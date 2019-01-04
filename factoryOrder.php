@@ -9,7 +9,9 @@ switch($opr){
         break;
     case "play":
 		update($num,$period);
-        addOrder($period+1);
+		if(checkstat()!=1){
+			addOrder($period+1);
+		}
         break;
 }
 header("Location: factory.php");

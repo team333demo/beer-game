@@ -2,6 +2,7 @@
 require_once("dbconfig.php");
 require_once("wOrderView.php");
 // checkLogin();
+$currPeriod0= period();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,6 +17,7 @@ require_once("wOrderView.php");
 <body>
 
 <p>Wholesaler </p>
+<h1>當前期數:第<?php echo $currPeriod0 ?>期</h1>
 <hr />
 <form method = "POST" action = "wholesalerOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
