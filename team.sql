@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2019 年 01 月 03 日 20:03
+-- 產生時間： 2019 年 01 月 04 日 22:25
 -- 伺服器版本: 10.1.32-MariaDB
 -- PHP 版本： 7.2.5
 
@@ -37,19 +37,23 @@ CREATE TABLE `team` (
   `retailer` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `cost` int(20) NOT NULL,
-  `score` int(20) NOT NULL
+  `score` int(20) NOT NULL,
+  `demandstatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 資料表的匯出資料 `team`
 --
 
-INSERT INTO `team` (`Tid`, `tname`, `factory`, `distributor`, `wholesaler`, `retailer`, `status`, `cost`, `score`) VALUES
-(1, '777', '12', '', '34', '45', '完成', 158, 0),
-(2, '555', '', '3333333', '', '', '結束', 0, 0),
-(3, '666', '', '', '', '', '等待中', 0, 0),
-(4, '456L', '55879', '', '', '', '遊戲中', 0, 0),
-(5, '87545', 'amy', '', '', '', '等待中', 0, 0);
+INSERT INTO `team` (`Tid`, `tname`, `factory`, `distributor`, `wholesaler`, `retailer`, `status`, `cost`, `score`, `demandstatus`) VALUES
+(1, '777', '12', '2222222', '34', '45', '完成', 0, 0, 1),
+(2, '555', '溪', '3333333', '加', 'go', '結束', 100, 10, 0),
+(3, '666', '2222', '5555', '', '55888', '等待中', 0, 0, 0),
+(4, '456L', '55879', '', '', '', '等待中', 0, 0, 0),
+(5, '87545', '', '', '', '', '等待中', 0, 0, 0),
+(6, '11111', '', '', '', '', '等待中', 0, 0, 0),
+(7, 'dhkp', '', '', '', '', '等待中', 0, 0, 0),
+(8, '機', '', '', '', '', '等待中', 0, 0, 0);
 
 --
 -- 已匯出資料表的索引
@@ -69,7 +73,7 @@ ALTER TABLE `team`
 -- 使用資料表 AUTO_INCREMENT `team`
 --
 ALTER TABLE `team`
-  MODIFY `Tid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Tid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
