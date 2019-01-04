@@ -50,7 +50,7 @@ if($check == 1) {
 		mysqli_stmt_execute($stmt); //執行SQL
 		// header('Location:indexView.php');
 	}
-	header('Location:ready.php');
+	header('Location:ready.php?Tid='.$Tid);
 }
 //header('Location:indexView.php');
 // echo "empty message id.";

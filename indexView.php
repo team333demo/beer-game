@@ -34,7 +34,7 @@ echo ("</script>");
 <?php echo $uname; ?><br>
 <p>my garbage 軟工 !! <a href="01.addform.php">新增隊伍</a>　　排行榜</p>
 <hr />
-<table width="200" border="1" class="">
+<table width="500" border="1" class="">
   <tr>
     <td>隊伍名稱</td>
     <td>Factory</td>
