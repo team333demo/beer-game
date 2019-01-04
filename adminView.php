@@ -1,7 +1,5 @@
 <?php
 require("dbconfig.php");
-require_once("loginModel.php");
-$uname = getCurrentUserName() ;
 // checkLogin();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -13,11 +11,11 @@ $uname = getCurrentUserName() ;
 </head>
 
 <body>
-<?php echo $uname; ?>
+
 <p>my garbage 軟工 !!</p>
 <hr />
 <a href="">  </a>
-<table width="500" border="1" class="">
+<table width="600" border="1" class="">
   <tr>
     <td>隊伍名稱</td>
     <td>Factory</td>
@@ -25,8 +23,7 @@ $uname = getCurrentUserName() ;
     <td>Wholesaler</td>
 	<td>Retailer</td>
 	<td>狀態</td>
-    <td>設定需求</td>   
-    <td>設定需求狀態</td>  
+    <td>設定需求</td>    
   </tr>
 <?php
 
@@ -44,7 +41,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	echo"<td>" , $rs['retailer'],"</td>";     
     echo"<td>" , $rs['status'],"</td>";
     echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
-    echo"<td>" , $rs['demandstatus'],"</td>";
     
 	// $id=$rs['Tid'];
 //$category=$rs['category'];
@@ -57,7 +53,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<a href ='startgame.php'>開始遊戲</a>　
-<a href ='history.php'>歷史隊伍</a>
+<a href ='startgame.php'>開始遊戲</a>
 </body>
 </html>
