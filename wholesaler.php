@@ -10,20 +10,49 @@ $currPeriod0= period();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<!--<link rel="stylesheet" type="text/css" href="main.css">-->
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+#view{
+width: 400px;
+margin: 30px auto;
+}
+font{
+font-size: 28pt; 
+color: darkyellow; 
+style: text-shadow:3px 3px 3px #cccccc;
+font-family:'Cabin Sketch', cursive;
+}
+font1{
+font-size: 12pt; 
+color: green; 
+style: text-shadow:3px 3px 3px #cccccc;
+font-family:Microsoft JhengHei;
+}
 
+td{
+width: 200px;
+border: 3px solid green;
+font-size:13;
+color:black;
+font-family:Microsoft JhengHei;
+}
+.table{
+border: 3px solid green;
+}
+</style>
 </head>
 
 <body>
-
-<p>Wholesaler </p>
-<h1>當前期數:第<?php echo $currPeriod0 ?>期</h1>
+<div id="view">
+<font><p>Wholesaler </p></font>
+<font1><h1>當前期數:第<?php echo $currPeriod0 ?>期</h1><font1>
 <hr />
 <form method = "POST" action = "wholesalerOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
     <input type = "submit" value = "重置"> 
 </form>
-<table width="200" border="1" class="" >
+<table width="200" border="1" class="table" >
   <tr>
     <td>週次</td>
     <td>到貨量</td>
@@ -60,5 +89,6 @@ while ( $rs = mysqli_fetch_assoc($result)) {
         <input type = "text" name = "num"><br>
         <input type = "submit" value = "下單"> 
     </form>
+</div>
 </body>
 </html>
