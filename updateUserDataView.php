@@ -50,6 +50,30 @@ input {
 }
 
 </style>
+<script type="text/javascript">
+    window.onload=function() {
+        document.getElementById("update").onsubmit=join;
+    };
+    function readURL(input){
+        if(input.files && input.files[0]){
+            var imageTagID = input.getAttribute("targetID");
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var img = document.getElementById(imageTagID);
+                img.setAttribute("src", e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function join(){
+        var pwdVal = document.getElementById("pwd").value;
+        ch = /[a-zA-Z0-9]/;
+        if(!ch.test(pwdVal)) {
+            alert("password有非英文及數字的字喔!");
+            return false;
+        }
+    }
+</script>
 
 </head>
 <body>
@@ -112,20 +136,6 @@ if ($rs = mysqli_fetch_array($result)) {
 }
 ?>
 
-<script type="text/javascript">
-    function readURL(input){
-        if(input.files && input.files[0]){
-            var imageTagID = input.getAttribute("targetID");
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                var img = document.getElementById(imageTagID);
-                img.setAttribute("src", e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-</script>
 </fieldset>
 <br/>
 <br/>
