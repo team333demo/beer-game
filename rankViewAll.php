@@ -66,8 +66,7 @@ a:hover {
     color: 	#66DD00;
 }
 #s {
-    color: #00BBFF;
-    /* color: #777; */
+    color: #00BBFF
 }
 </style>
 </head>
@@ -78,7 +77,7 @@ require_once("dbconfig.php");
 require_once("loginModel.php");
 require_once("rankModel.php");
 $userID = getCurrentUser();
-$result = top10();
+$result = allrank();
 $uresult = userscore($userID);
 $urank = userrank($userID);
 ?>
@@ -110,7 +109,7 @@ $urank = userrank($userID);
     </tr>
     <tr align='left'>
         <td colspan = 3>
-            <a href="rankViewAll.php"> 所有排名 </a>
+            <a href="rankView.php"> top 10 </a>
         </td>
     </tr>
 </table>
