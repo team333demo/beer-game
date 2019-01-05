@@ -69,7 +69,7 @@ $uname = getCurrentUserName() ;
 <div id="til"  class="div-left" >
 <?php echo 'Admin : ',$uname; ?>
 <!-- <p>my garbage 軟工 !!</p> -->
-<a href ='startgame.php'><img src="pic/start.png" width="150"height="110"></a>　　　
+<a href = "setdemand.php?Tid="$Tid><img src="pic/start.png" width="150"height="110"></a>　　　
 <a href ='history.php'><img src="pic/history.png"id="h" width="100" height="100"></a>
 </div>
 <body>
@@ -82,7 +82,7 @@ $uname = getCurrentUserName() ;
     <td>Wholesaler</td>
 	  <td>Retailer</td>
 	  <td>狀態</td>
-    <td>設定需求</td>    
+    <!-- <td>查看需求</td>     -->
   </tr>
 </div>
 <?php
@@ -100,7 +100,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	echo"<td>" , $rs['wholesaler'],"</td>";
 	echo"<td>" , $rs['retailer'],"</td>";     
   echo"<td>" , $rs['status'],"</td>";
-  echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
+  // echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
     
 	// $id=$rs['Tid'];
 //$category=$rs['category'];
