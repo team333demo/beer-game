@@ -9,11 +9,11 @@ switch($opr){
 		
         break;
     case "play":
-		update($num,$period);
-		if(checkstat()!=1){
-			addOrder($period+1);
-		}
-        break;
+		update($num,$period);		
+		addOrder($period+1);        
+		updatearrival($period);
+		updatesales($period);
+		break;
 }
 header("Location: wholesaler.php");
  

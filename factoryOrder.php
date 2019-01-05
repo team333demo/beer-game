@@ -7,12 +7,12 @@ switch($opr){
     case "reset":
         init();
         break;
-    case "play":
-		update($num,$period);
-		if(checkstat()!=1){
-			addOrder($period+1);
-		}
-        break;
+   case "play":
+		update($num,$period);		
+		addOrder($period+1);        
+		updatearrival($period);
+		updatesales($period);
+		break;
 }
 header("Location: factory.php");
  

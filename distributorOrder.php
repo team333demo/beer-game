@@ -9,10 +9,10 @@ switch($opr){
         init();		
         break;
     case "play":
-		update($num,$period);
-		if(checkstat()!=1){
-			addOrder($period+1);
-        }
+		update($num,$period);		
+		addOrder($period+1);        
+		updatearrival($period);
+		updatesales($period);
 		break;
 }
 header("Location: distributor.php");
