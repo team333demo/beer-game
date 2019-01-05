@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- 主機: 127.0.0.1
--- 產生時間： 2019 年 01 月 05 日 13:05
--- 伺服器版本: 10.1.35-MariaDB
--- PHP 版本： 7.2.9
+-- Host: 127.0.0.1
+-- Generation Time: 2019-01-05 22:17:39
+-- 服务器版本： 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,18 +19,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `beer game`
+-- Database: `beer_game`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `retailer`
+-- 表的结构 `retailer`
 --
 
 CREATE TABLE `retailer` (
   `rid` int(11) NOT NULL,
-  `tid` int(11) NOT NULL,
+  `Tid` int(11) NOT NULL,
   `period` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
   `rord` int(11) NOT NULL,
@@ -41,12 +41,11 @@ CREATE TABLE `retailer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 資料表的匯出資料 `retailer`
+-- 转存表中的数据 `retailer`
 --
 
-INSERT INTO `retailer` (`rid`, `tid`, `period`, `stock`, `rord`, `arrival`, `cost`, `rstat`, `rsale`) VALUES
-(0, 0, 0, 15, 0, 0, 0, 1, 0),
-(0, 0, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `retailer` (`rid`, `Tid`, `period`, `stock`, `rord`, `arrival`, `cost`, `rstat`, `rsale`) VALUES
+(0, 0, 0, 15, 0, 0, 0, 1, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
