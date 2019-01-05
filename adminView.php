@@ -9,56 +9,72 @@ $uname = getCurrentUserName() ;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
 </head>
 <style type="text/css">
   body {
-    width: 500px; margin:100px auto;
+    width: 700px; margin:30px auto;
     opacity:0.9;
     background-color: #F2FFFF;
+    text-align:center;
   }
   #content {
-    color:black; background-color:rgb(255, 239, 204); border:2px outset #ccc; padding:20px;
+    color:black; 
+    background-color:rgb(255, 239, 204); 
+    border:2px outset #ccc; 
+    padding:10px;
   }
   #til {
+    font-weight: bold;
+    position:absolute;
+    left:90px;
     font-family: "微軟正黑體";
     color:black;
     font-size: 20px;
+    text-align:middle;
+    /* line-height:100px; */
   }
   #w{
     font-family: "微軟正黑體";
     font-size: 10px;
   }
   table {
-    margin: 10px auto; border: 1px outset #ccc; width:400px;
+    margin: 10px auto; border: 1px outset #ccc; width:600px;
   }
-  td {
-    text-align;
+  #b{
+    position:absolute;
+    left:100px;
   }
-  ul a {
+  a {
     display:block;
-    background-image:url(pic/beer.png);
+    /* background-image:url(beer.png); */
     background-repeat:no-repeat;
     width:64px;
-    line-height:64px;
+    line-height:40px;
     text-indent:1px;
     color:black;
   }
-  ul a:hover {
-    background-image:url(pic/bottom-2.png);
+  a:hover {
+    /* background-image:url(beer.png); */
     font-weight:bold;
     color:green;
   }
+  #h{
+    position:absolute;
+    left:25px;
+  }
 </style>
-<body>
 
-<div id="til">
-<?php echo 'Welcome User : ',$uname; ?>
-<p>my garbage 軟工 !!</p>
+
+<div id="til"  class="div-left" >
+<?php echo 'Admin : ',$uname; ?>
+<!-- <p>my garbage 軟工 !!</p> -->
+<a href ='startgame.php'><img src="pic/start.png" width="150"height="110"></a>　　　
+<a href ='history.php'><img src="pic/history.png"id="h" width="100" height="100"></a>
 </div>
-<hr />
+<body>
 <div id="content">
-<table width="600" border="1" class="">
+<table width="600" border="1">
   <tr id="w">
     <td>隊伍名稱</td>
     <td>Factory</td>
@@ -97,9 +113,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<ul>
-<a href ='startgame.php'>startgame</a>　
-<a href ='history.php'>historyteam</a>
-</ul>
+<!-- <div id="b">
+
+</div> -->
 </body>
 </html>
