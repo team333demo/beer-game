@@ -30,11 +30,11 @@ echo ("</script>");
 body {
      background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('city.png');
+    background-image: url('city.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
-    
+    background-size:cover;
 }
 p{
     font-family: "微軟正黑體";
@@ -42,13 +42,12 @@ p{
     text-align: center;
 }
 fieldset {
-    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     margin-left: auto;
     margin-right: auto;
     width: 950px;
     border-style: solid;
     font-weight: bold;
-    border-color: white;
+    border-color: rgba(0%,0%,0%,0);
     border-width: thick;
     flex-direction: column;
     position: absolute;
@@ -56,13 +55,12 @@ fieldset {
     left:270px;
 }
 table {
-    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     margin-left: auto;
     margin-right: auto;
     width: 1050px;
     border-style: solid;
     font-weight: bold;
-    border-color: gainsboro;
+    border-color: rgba(0%,0%,0%,0);
     border-width: thick;
 }
 #preview_img {

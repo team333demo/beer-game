@@ -2,6 +2,7 @@
 require("dbconfig.php");
 // checkLogin();
 ?>
+
 <?php 
 echo "當前時間：";
 echo "";
@@ -28,12 +29,15 @@ echo ("</script>");
 body {
      background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('reward.jpg');
+    background-image: url('jiang.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-size: cover;
     
+}
+#time{
+    color=white;
 }
 p{
     font-family: "微軟正黑體";
@@ -64,6 +68,7 @@ table {
 #preview_img {
     object-fit: contain;
 }
+
 
 </style>
 </head>
@@ -127,6 +132,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 ?>
 
 </table>
-<p> <a href="IndexView.php">回到首頁</a></p>
+<p> <a href="IndexView.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:5px;'> 回到首頁 </a></p>
 </body>
 </html>
