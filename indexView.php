@@ -2,6 +2,8 @@
 require("dbconfig.php");
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
+$uid = getCurrentUser();
+
 // checkLogin();
 ?>
 <?php 
@@ -19,6 +21,20 @@ echo ("window.location.reload();");
 echo ("}"); 
 echo ("setTimeout('fresh_page()',10000);"); 
 echo ("</script>");
+
+echo ("</script>");
+
+$sql = "select uname,status,role.Tid,r from `team`,role,user WHERE role.Tid=team.Tid and role.uid=user.uid and (status= '等待中'or status= '完成' or status= '遊戲中') and uname=?";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "s",$uname);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+
+if($rs['status'] =='遊戲中'){
+    header("Location:adminView.php");
+    //判斷是什麼角色並前往(Tid,role)
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
