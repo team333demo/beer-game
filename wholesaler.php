@@ -19,26 +19,26 @@ margin: 30px auto;
 }
 font{
 font-size: 28pt; 
-color: darkyellow; 
+color: #DED418; 
 style: text-shadow:3px 3px 3px #cccccc;
 font-family:'Cabin Sketch', cursive;
 }
 font1{
 font-size: 12pt; 
-color: green; 
+color: #DED418; 
 style: text-shadow:3px 3px 3px #cccccc;
 font-family:Microsoft JhengHei;
 }
 
 td{
 width: 200px;
-border: 3px solid green;
+border: 3px solid #DED418;
 font-size:13;
 color:black;
 font-family:Microsoft JhengHei;
 }
 .table{
-border: 3px solid green;
+border: 3px solid #DED418;
 }
 </style>
 </head>
