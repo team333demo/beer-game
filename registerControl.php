@@ -9,11 +9,11 @@ body {
     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
 }
 div {
-    height: 610px;
+    height: 410px;
     weight: 1300px;
 }
 table {
-    margin-top: 300px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -65,7 +65,7 @@ if ($result = mysqli_query($db,$sqluid)) {
                 <th>帳號已存在!! <?php header( "refresh:5;url=registerView.php" );?> </th>
             </tr>
             <tr>
-                <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
+                <td>You'll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
             </tr>
         </table>
         <!-- echo "帳號已存在!!"; -->
@@ -81,7 +81,7 @@ if ($result = mysqli_query($db,$sqluid)) {
                     <th>名稱已存在!! <?php header( "refresh:5;url=registerView.php" );?> </th>
                 </tr>
                 <tr>
-                    <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
+                    <td>You'll be redirected in about 5 secs. If not, click <?php echo "<a href='registerView.php'>"?>here</a>.</td>
                 </tr>
             </table>
             <!-- echo "名稱已存在!!"; -->
@@ -102,17 +102,14 @@ if ($result = mysqli_query($db,$sqluid)) {
                     <th>註冊完成!! <?php header( "refresh:5;url=loginView.php" );?> </th>
                 </tr>
                 <tr>
-                    <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='loginView.php'>"?>here</a>.</td>
+                    <td>You'll be redirected in about 5 secs. If not, click <?php echo "<a href='loginView.php'>"?>here</a>.</td>
                 </tr>
             </table>
-
 <?php
         }
     } 
 } 
-
 ?>
-
 </div>
 </body>
 </html>
