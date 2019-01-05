@@ -5,8 +5,15 @@
 <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 <title>修改玩家資訊</title>
 <style type="text/css">
+body {
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+}
+div {
+    height: 610px;
+    weight: 1300px;
+}
 table {
-    margin-top: 300px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -23,6 +30,7 @@ td {
 
 </head>
 <body>
+<div>
 <?php
 require("dbconfig.php");
 require_once("loginModel.php");
@@ -68,12 +76,13 @@ if ($userName == $userName_origin) {
     // header( "refresh:5;url=indexView.php" ); 
     // echo '<br/>You\'ll be redirected in about 5 secs. If not, click <a href="indexView.php">here</a>.';
 ?>
+
 <table>
     <tr>
         <th>修改完成 <?php header( "refresh:5;url=indexView.php" );?></th>
     </tr>
     <tr>
-        <td>You\'ll be redirected in about 5 secs. If not, click <a href="indexView.php">here</td>.</p>
+        <td>You'll be redirected in about 5 secs. If not, click <a href="indexView.php">here</td>.</p>
     </tr>
 </table>
 
@@ -89,7 +98,7 @@ if ($userName == $userName_origin) {
                 <th>名稱已存在!! <?php header( "refresh:5;url=updateUserDataView.php?uid=$userID" );?> </th>
             </tr>
             <tr>
-                <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='updateUserDataView.php?uid=$userID'>"?>here</a>.</td>
+                <td>You'll be redirected in about 5 secs. If not, click <?php echo "<a href='updateUserDataView.php?uid=$userID'>"?>here</a>.</td>
             </tr>
         </table>
     <?php
@@ -105,7 +114,7 @@ if ($userName == $userName_origin) {
                 <th>修改完成 <?php header( "refresh:5;url=indexView.php" );?></th>
             </tr>
             <tr>
-                <td>You\'ll be redirected in about 5 secs. If not, click <a href="indexView.php">here</td>.</p>
+                <td>You'll be redirected in about 5 secs. If not, click <a href="indexView.php">here</td>.</p>
             </tr>
         </table>
  <?php
@@ -116,5 +125,6 @@ if ($userName == $userName_origin) {
 } 
 
 ?> 
+</div>
 </body>
 </html>

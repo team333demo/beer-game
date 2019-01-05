@@ -7,31 +7,34 @@
 <style type="text/css">
 body {
     font-family: 'VT323', monospace;
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
 }
 h1 {
     font-family: "微軟正黑體";
-    font-size: 50px;
+    /* font-size: 50px; */
     text-align: center;
 }
 fieldset {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    border-color: #fdd;
+    border-color: gainsboro;
     border-style: solid;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
+    border-width: thick;
 }
 table {
     margin-left: auto;
     margin-right: auto;
+    width: 1050px;
 }
 th {
-    font-size: 40px;
+    font-size: 30px;
     text-align:left;
 }
 input {
-    height: 40px;
+    height: 30px;
     font-size: 20px;
 }
 #preview_img {
@@ -75,7 +78,7 @@ if ($rs = mysqli_fetch_array($result)) {
         <?php
             $img=$rs["pic"];
             $logodata = $img;
-            echo '<img id="preview_img" width="450" height="450" src="data:'.'jpeg'.';base64,' . $logodata . '" /></br>';
+            echo '<img id="preview_img" width="400" height="400" src="data:'.'jpeg'.';base64,' . $logodata . '" /></br>';
         ?>
             <!-- <img id="preview_img" width="450" height="450" src="#" /><br /> -->
             change picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img"  value="<?php echo $rs['pic']; ?>" accept="image/gif, image/jpeg, image/png" >
@@ -123,6 +126,9 @@ if ($rs = mysqli_fetch_array($result)) {
     }
     
 </script>
+</fieldset>
+<br/>
+<br/>
 </body>
 
 </html>
