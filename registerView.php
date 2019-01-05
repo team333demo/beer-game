@@ -43,6 +43,12 @@ input {
     height: 30px;
     font-size: 20px;
 }
+#ok {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    bottom: 50px;
+}
 #preview_img {
     text-align:center;
     object-fit: contain;
@@ -109,7 +115,8 @@ input {
         </th>
     <tr>
         <td  align='right'>
-            <input type="submit">
+            <input id='ok' type="image" src="ok.png">
+            <!-- <input type="submit"> -->
         </td>
     </tr>
     </table>

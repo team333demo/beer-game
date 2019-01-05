@@ -73,7 +73,7 @@ a:hover {
 <h1>Login</h1>
 <table>
 <tr><td>User ID: <input type="text" name="id"></td></tr>
-<tr><td>Password : <input type="password" name="pwd" ></td></tr>
+<tr><td>Password : <input type="password" name="pwd" size="17"></td></tr>
 <tr><td id='r' align='right'>    
     <a href='registerView.php'>註冊</a>
     <input id='login' type="image" src="login.gif">
