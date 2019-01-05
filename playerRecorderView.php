@@ -19,8 +19,14 @@ h1 {
 span {
     color: 	dodgerblue;
 }
+#beer {
+    width: 350px;
+    position: absolute;
+    top: 300px;
+    right: 30px;
+}
 div {
-    height: 46if ($rs['period'] > 0)0px;
+    height: 460px;
     weight: 1300px;
 }
 table {
@@ -61,6 +67,7 @@ td {
 </head>
 <body>
 <h1><span><?php echo getCurrentUserName()?></span>的歷史資料</h1>
+<img id='beer' src="snoopy.gif">
 <?php
 require_once("dbconfig.php");
 require_once("loginModel.php");
