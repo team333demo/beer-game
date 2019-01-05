@@ -46,8 +46,9 @@ function period() {
     return $period;
 }
 function checkstat($period) {
+	//test
     global $db;
-    $sql = "select dstat  from wholesaler where period = (?-1) ";
+    $sql = "select dstat  from distributor where period = (?-1) ";
     $stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt,"i",$period);
     mysqli_stmt_execute($stmt); //執行SQL
@@ -61,14 +62,14 @@ function checkstat($period) {
     $result = mysqli_stmt_get_result($stmt);
 	$result2=mysqli_fetch_assoc($result);
 	
-	$sql = "select wstat from factory where period = (?-1)";
+	$sql = "select wstat from wholesaler where period = (?-1)";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "i",$period);
     mysqli_stmt_execute($stmt); //執行SQL
     $result = mysqli_stmt_get_result($stmt);
 	$result3=mysqli_fetch_assoc($result);
 	
-	$sql = "select fstat from distributor where period = ?";
+	$sql = "select fstat from factory where period = ?";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "i",$period);
     mysqli_stmt_execute($stmt); //執行SQL
