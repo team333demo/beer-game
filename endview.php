@@ -24,12 +24,55 @@ echo ("</script>");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
 <link rel="stylesheet" type="text/css" href="main.css">
+<style type="text/css">
+body {
+     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    font-family: 'VT323', monospace;
+    background-image: url('reward.jpg');
+    background-position : 50% 100%;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size: cover;
+    
+}
+p{
+    font-family: "微軟正黑體";
+    font-size:20px;
+    text-align: center;
+}
+fieldset {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 950px;
+    border-style: solid;
+    font-weight: bold;
+    border-color: rgba(0%,0%,0%,0);
+    border-width: thick;
+    flex-direction: column;
+}
+table {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1050px;
+    border-style: solid;
+    font-weight: bold;
+    border-color: rgba(0%,0%,0%,0);
+    border-width: thick;
+}
+#preview_img {
+    object-fit: contain;
+}
 
+</style>
 </head>
 
 <body>
 
-<p>my garbage 軟工 !! 　　統計圖表 參與紀錄 排行榜</p>
+<fieldset>
+<p>my garbage 軟工 !!<hr> 　　統計圖表 參與紀錄 排行榜</hr></p>
+</fieldset>
 <hr />
 <table width="200" border="1" class="">
   <tr>
