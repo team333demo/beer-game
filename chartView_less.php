@@ -74,7 +74,7 @@ var app = {};
 option = null;
 option = {
     title: {
-        text: '統計圖表'
+        text: '欠貨統計圖表'
     },
     tooltip: {
         trigger: 'axis'
@@ -107,21 +107,45 @@ option = {
         {
             name:'factory',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $fl; ?>//[0,120, 132, 101]
         },
         {
             name:'distributor',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $dl; ?>//[0,220, 182, 191]
         },
         {
             name:'wholesaler',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $wl; ?>//[0,150, 232, 201]
         },
         {
             name:'retailer',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $rl; ?>//[0,320, 332, 301]
         }
     ]

@@ -11,7 +11,8 @@
         $counter = 0;
         $tmp = 0;
         while ($rs = mysqli_fetch_assoc($result)) {
-            $tmp += $rs['cost'];
+            if ($rs['period'] > 0)
+                $tmp += $rs['cost'];
             $period[$counter] = $rs['period'];
             $fcost[$counter] = $tmp;
             $counter++;
@@ -23,7 +24,8 @@
         $counter = 0;
         $tmp = 0;
         while ($rs = mysqli_fetch_assoc($result)) {
-            $tmp += $rs['cost'];
+            if ($rs['period'] > 0)
+                $tmp += $rs['cost'];
             $dcost[$counter] = $tmp;
             $counter++;
         }
@@ -33,7 +35,8 @@
         $tmp = 0;
         $counter = 0;
         while ($rs = mysqli_fetch_assoc($result)) {
-            $tmp += $rs['cost'];
+            if ($rs['period'] > 0)
+                $tmp += $rs['cost'];
             $wcost[$counter] = $tmp;
             $counter++;
         }
@@ -43,7 +46,8 @@
         $counter = 0;
         $tmp = 0;
         while ($rs = mysqli_fetch_assoc($result)) {
-            $tmp += $rs['cost'];
+            if ($rs['period'] > 0)
+                $tmp += $rs['cost'];
             $rcost[$counter] = $tmp;
             $counter++;
         }
@@ -66,7 +70,7 @@ var app = {};
 option = null;
 option = {
     title: {
-        text: '統計圖表'
+        text: '累計成本統計圖表'
     },
     tooltip: {
         trigger: 'axis'
@@ -99,21 +103,45 @@ option = {
         {
             name:'factory',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $fc; ?>//[0,120, 132, 101]
         },
         {
             name:'distributor',
             type:'line',
-            data:<?php echo $dc; ?>//[0,220, 182, 191]
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
+            data: <?php echo $dc; ?>//[0,220, 182, 191]
         },
         {
             name:'wholesaler',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $wc; ?>//[0,150, 232, 201]
         },
         {
             name:'retailer',
             type:'line',
+            symbolSize: 5,
+            lineStyle: {
+                normal: {
+                    width: 5
+                }
+            },
             data:<?php echo $rc; ?>//[0,320, 332, 301]
         }
     ]
