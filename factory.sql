@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 12:54 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- 主機: 127.0.0.1
+-- 產生時間： 2019 年 01 月 05 日 13:05
+-- 伺服器版本: 10.1.35-MariaDB
+-- PHP 版本： 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- 資料庫： `beer game`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factory`
+-- 資料表結構 `factory`
 --
 
 CREATE TABLE `factory` (
@@ -33,35 +33,37 @@ CREATE TABLE `factory` (
   `tid` int(11) NOT NULL,
   `period` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
-  `ord` int(11) NOT NULL,
+  `ford` int(11) NOT NULL,
   `arrival` int(11) NOT NULL,
-  `cost` int(11) NOT NULL
+  `cost` int(11) NOT NULL,
+  `fstat` int(10) NOT NULL,
+  `fsale` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `factory`
+-- 資料表的匯出資料 `factory`
 --
 
-INSERT INTO `factory` (`fid`, `tid`, `period`, `stock`, `ord`, `arrival`, `cost`) VALUES
-(1, 1, 4, 4, 4, 12, 4),
-(2, 2, 3, 4, 5, 6, 7);
+INSERT INTO `factory` (`fid`, `tid`, `period`, `stock`, `ford`, `arrival`, `cost`, `fstat`, `fsale`) VALUES
+(1, 0, 0, 15, 0, 0, 0, 1, 0),
+(2, 0, 1, 0, 0, 0, 0, 0, 0);
 
 --
--- Indexes for dumped tables
+-- 已匯出資料表的索引
 --
 
 --
--- Indexes for table `factory`
+-- 資料表索引 `factory`
 --
 ALTER TABLE `factory`
   ADD PRIMARY KEY (`fid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 在匯出的資料表使用 AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `factory`
+-- 使用資料表 AUTO_INCREMENT `factory`
 --
 ALTER TABLE `factory`
   MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

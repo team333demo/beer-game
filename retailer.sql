@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 12:54 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- 主機: 127.0.0.1
+-- 產生時間： 2019 年 01 月 05 日 13:05
+-- 伺服器版本: 10.1.35-MariaDB
+-- PHP 版本： 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- 資料庫： `beer game`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `retailer`
+-- 資料表結構 `retailer`
 --
 
 CREATE TABLE `retailer` (
@@ -33,10 +33,20 @@ CREATE TABLE `retailer` (
   `tid` int(11) NOT NULL,
   `period` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
-  `ord` int(11) NOT NULL,
+  `rord` int(11) NOT NULL,
   `arrival` int(11) NOT NULL,
-  `cost` int(11) NOT NULL
+  `cost` int(11) NOT NULL,
+  `rstat` int(10) NOT NULL,
+  `rsale` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 資料表的匯出資料 `retailer`
+--
+
+INSERT INTO `retailer` (`rid`, `tid`, `period`, `stock`, `rord`, `arrival`, `cost`, `rstat`, `rsale`) VALUES
+(0, 0, 0, 15, 0, 0, 0, 1, 0),
+(0, 0, 1, 0, 0, 0, 0, 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
