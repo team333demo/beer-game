@@ -25,15 +25,75 @@ echo ("</script>");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>indexView</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<!--<link rel="stylesheet" type="text/css" href="main.css">-->
+<style type="text/css">
+body {
+     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    font-family: 'VT323', monospace;
+    background-image: url('city.png');
+    background-position : 50% 100%;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    
+}
+p{
+    font-family: "微軟正黑體";
+    font-size:20px;
+    text-align: center;
+}
+fieldset {
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    margin-left: auto;
+    margin-right: auto;
+    width: 950px;
+    border-style: solid;
+    font-weight: bold;
+    border-color: white;
+    border-width: thick;
+    flex-direction: column;
+    position: absolute;
+    top:10px;
+    left:270px;
+}
+table {
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    margin-left: auto;
+    margin-right: auto;
+    width: 1050px;
+    border-style: solid;
+    font-weight: bold;
+    border-color: gainsboro;
+    border-width: thick;
+}
+#preview_img {
+    object-fit: contain;
+}
+
+
+
+</style>
+
 
 </head>
 
 <body>
 <br>
-<?php echo $uname; ?><br>
-<p>my garbage 軟工 !! <a href="01.addform.php">新增隊伍</a>　　排行榜</p>
+<?php echo $uname; 
+$sql = "select * from user where uname= ?";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, "s", $uname);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_array($result);
+$img=$rs["pic"];
+$logodata = $img;
+echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,' . $logodata . '" /> ,歡迎您!<br><br>';
+?><br>
+<fieldset>
+<p>my garbage 軟工 !! <hr>
+<a href="01.addform.php" ;>新增隊伍</a>  排行榜</p>
 <hr />
+</fieldset>
 <table width="500" border="1" class="">
   <tr>
     <td>隊伍名稱</td>
@@ -43,7 +103,7 @@ echo ("</script>");
 	<td>Retailer</td>
 	<td>狀態</td>
   </tr>
-  
+
 <?php
 // echo getCurrentUser(); 
 echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '">修改玩家資料</a>';

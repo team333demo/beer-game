@@ -1,10 +1,10 @@
 <a href ='adminView.php'>往返</a><br/><br/>
 <?php
 require("dbconfig.php");
-$Tid=(int)$_REQUEST['Tid'];
+// $Tid=(int)$_REQUEST['Tid'];
 
-// echo $Tid;
-    $sql = "select period,demand from demand where Tid=?;";
+echo $Tid;
+    $sql = "select period,demand from demand ;";
     $stmt = mysqli_prepare($db, $sql );
     mysqli_stmt_bind_param($stmt,"i", $Tid);
     mysqli_stmt_execute($stmt);
@@ -17,15 +17,19 @@ $Tid=(int)$_REQUEST['Tid'];
               </tr>";
 
     while ($rs = mysqli_fetch_assoc($result)){
-        echo "<tr><td>" , $rs['period'],"</td>",
-             "<td>" , $rs['demand'],"</td>";
-        $check=1;
-    }if($check==0)
-        echo "<form method='post' action='insertdemand.php?Tid=$Tid'>
+        if($rs != NULL)
+            $check=1;
+    }
+    if($check == 1) {
+        echo "<script>alert('警告：目前有遊戲進行中!'); location='adminView.php';</script>";
+    }else{
+        echo "<form method='post' action='insertdemand.php'>
         <tr><td>50</td><td>
         <input name='demand1' type='text' id='demand1' /> ~ 
         <input name='demand2' type='text' id='demand2' /></td></tr></table><br/>
         <input type='submit' name='Submit' value='送出' /></form>";
+    }
+        
 ?>
 <!-- <table width="500" border="1" class="">
     <tr>
