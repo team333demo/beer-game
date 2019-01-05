@@ -12,6 +12,12 @@ h1 {
     text-align: center;
     font-family: 微軟正黑體;
 }
+#beer {
+    width: 300px;
+    position: absolute;
+    top: 250px;
+    right: 70px;
+}
 table {
     margin-left: auto;
     margin-right: auto;
@@ -36,7 +42,7 @@ img {
     object-fit: contain;
 }
 a {
-    font-family: 微軟正黑體;
+    /* font-family: 微軟正黑體; */
     text-decoration: none;
     font-size: 25px;
     color: darkorchid;
@@ -72,6 +78,7 @@ a:hover {
 </head>
 <body>
 <h1>排行榜</h1>
+<img id='beer' src="beer_rank.gif">
 <?php
 require_once("dbconfig.php");
 require_once("loginModel.php");
