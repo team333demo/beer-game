@@ -45,10 +45,14 @@ img {
 input {
     font-size: 20px;
 }
+#login {
+    height: 35px;
+}
 a {
     position: relative; 
     text-decoration: none;
-    top: 5px;
+    /* top: 5px; */
+    bottom: 7px;
     color: darkorchid;
 }
 a:hover {
@@ -69,10 +73,10 @@ a:hover {
 <h1>Login</h1>
 <table>
 <tr><td>User ID: <input type="text" name="id"></td></tr>
-<tr><td>Password : <input type="password" name="pwd"></td></tr>
+<tr><td>Password : <input type="password" name="pwd" ></td></tr>
 <tr><td id='r' align='right'>    
-    <input type="submit" value='登入'>
     <a href='registerView.php'>註冊</a>
+    <input id='login' type="image" src="login.gif">
 </tr></td>
 </form>
 </body>
