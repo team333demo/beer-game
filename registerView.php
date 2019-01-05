@@ -14,6 +14,12 @@ h1 {
     /* font-size: 50px; */
     text-align: center;
 }
+#beer {
+    width: 250px;
+    position: absolute;
+    top: 400px;
+    right: 350px;
+}
 fieldset {
     margin-left: auto;
     margin-right: auto;
@@ -76,7 +82,7 @@ input {
 </head>
 <body>
 <h1>註冊</h1>
-
+<img id='beer' src="beer.gif">
 <form id="register" action="registerControl.php" method="POST" enctype="multipart/form-data">
     <fieldset id = "topFieldset"> 
     <legend id = "require">Required Fields</legend>

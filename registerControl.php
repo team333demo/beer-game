@@ -6,11 +6,18 @@
 <title>註冊</title>
 <style type="text/css">
 body {
+    color: #000066;
     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
 }
 div {
     height: 410px;
     weight: 1300px;
+}
+#beer {
+    width: 350px;
+    position: absolute;
+    top: 300px;
+    right: 350px;
 }
 table {
     margin-top: 200px;
@@ -31,6 +38,7 @@ td {
 </head>
 <body>
 <div>
+<img id='beer' src="cheer1.gif">
 <?php
 require("dbconfig.php");
 $userID = $_POST['uid'];
