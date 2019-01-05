@@ -10,15 +10,21 @@ body {
     /* background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff); */
 }
 p {
-
     font-family: "微軟正黑體";
     font-size: 100px;
     position: absolute;
-    color: darkorchid;/*RGB(189,215,238);*/
+    /* color: darkorchid;RGB(189,215,238); */
+    color: #083399;
     bottom: 200px;
     left: 140px;
     font-weight: bold;
     text-shadow: -2px -2px white, 2px 2px #444;
+}
+#beer {
+    width: 250px;
+    position: absolute;
+    bottom: 200px;
+    left: 115px;
 }
 h1 {
     font-size: 50px;
@@ -56,8 +62,8 @@ a:hover {
 
 </head>
 <body>
-
-<img style="display:block; margin:auto;" src="home3.jpg">
+<img id='beer' src="beer_jump.gif">
+<img style="display:block; margin:auto;" src="home4.jpg">
 <p>啤酒<br/>遊戲</p>
 <form method="post" action="loginControl.php">
 <h1>Login</h1>
