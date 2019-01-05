@@ -10,12 +10,10 @@ $uname = getCurrentUserName() ;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
 <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 <style type="text/css">
   body {
     width: 500px; margin:100px auto;
-    background-repeat:no-repeat;
-    background-image:url(pic/beer2.jpg);
-    background-size:100% 100%;
     opacity:0.9;
     background-color: #F2FFFF;
   }
@@ -24,7 +22,7 @@ $uname = getCurrentUserName() ;
   }
   #til {
     font-family: "微軟正黑體";
-    color:ivory;
+    color:black;
     font-size: 20px;
   }
   #w{
@@ -52,16 +50,15 @@ $uname = getCurrentUserName() ;
     color:green;
   }
 </style>
-</head>
 <body>
+
 <div id="til">
 <?php echo 'Welcome User : ',$uname; ?>
 <p>my garbage 軟工 !!</p>
 </div>
 <hr />
 <div id="content">
-
-<table width="500" border="1">
+<table width="600" border="1" class="">
   <tr id="w">
     <td>隊伍名稱</td>
     <td>Factory</td>
@@ -69,8 +66,7 @@ $uname = getCurrentUserName() ;
     <td>Wholesaler</td>
 	  <td>Retailer</td>
 	  <td>狀態</td>
-    <td>設定需求</td>   
-    <td>設定需求狀態</td>  
+    <td>設定需求</td>    
   </tr>
 </div>
 <?php
@@ -87,9 +83,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 	echo"<td>" , $rs['distributor'],"</td>";
 	echo"<td>" , $rs['wholesaler'],"</td>";
 	echo"<td>" , $rs['retailer'],"</td>";     
-    echo"<td>" , $rs['status'],"</td>";
-    echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
-    echo"<td>" , $rs['demandstatus'],"</td>";
+  echo"<td>" , $rs['status'],"</td>";
+  echo"<td><a href = 'setdemand.php?Tid=$Tid'>設定</a></td>";
     
 	// $id=$rs['Tid'];
 //$category=$rs['category'];
