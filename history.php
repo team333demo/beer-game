@@ -12,12 +12,68 @@ $uname = getCurrentUserName() ;
 <link rel="stylesheet" type="text/css" href="main.css">
 
 </head>
-
+<style type="text/css">
+  body {
+    width: 700px; margin:30px auto;
+    opacity:0.9;
+    background-color: #F2FFFF;
+    text-align:center;
+  }
+  #content {
+    color:black; 
+    background-color:rgb(255, 239, 204); 
+    border:2px outset #ccc; 
+    padding:10px;
+  }
+  #til {
+    font-weight: bold;
+    position:absolute;
+    left:90px;
+    font-family: "微軟正黑體";
+    color:black;
+    font-size: 20px;
+    text-align:middle;
+    /* line-height:100px; */
+  }
+  #w{
+    font-family: "微軟正黑體";
+    font-size: 10px;
+  }
+  table {
+    margin: 10px auto; border: 1px outset #ccc; width:600px;
+  }
+  #b{
+    position:absolute;
+    left:100px;
+  }
+  /* a {
+    display:block;
+    background-image:url(pic/beer.png);
+    background-repeat:no-repeat;
+    width:64px;
+    line-height:64px;
+    text-indent:1px;
+    color:black;
+  }
+  a:hover {
+    background-image:url(pic/bottom-2.png);
+    font-weight:bold;
+    color:green;
+  } */
+  #h{
+    position:absolute;
+    left:25px;
+  }
+</style>
 <body>
-歷史紀錄<br/><br/>
-<!-- <?php /*echo $uname;*/ ?><br/><br/> -->
+<div id="til"  class="div-left">
+<?php echo 'Admin : ',$uname; ?><br><br>
+歷史紀錄<br><br>
+<a href ='adminView.php'>往返</a>
+</div>
+<div id="content">
 <table width="600" border="1" class="">
-  <tr>
+  <tr id="w">
     <td>隊伍名稱</td>
     <td>Factory</td>
     <td>Distributer</td>
@@ -26,7 +82,7 @@ $uname = getCurrentUserName() ;
     <td>分數</td>
 	<td>狀態</td>
   </tr>
-  
+</div>
 <?php
 // echo getCurrentUser(); 
 $sql = "select * from `team` WHERE status= '結束';";
