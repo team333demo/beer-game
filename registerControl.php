@@ -5,6 +5,13 @@
 <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 <title>註冊</title>
 <style type="text/css">
+body {
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+}
+div {
+    height: 610px;
+    weight: 1300px;
+}
 table {
     margin-top: 300px;
     margin-left: auto;
@@ -23,6 +30,7 @@ td {
 
 </head>
 <body>
+<div>
 <?php
 require("dbconfig.php");
 $userID = $_POST['uid'];
@@ -97,11 +105,14 @@ if ($result = mysqli_query($db,$sqluid)) {
                     <td>You\'ll be redirected in about 5 secs. If not, click <?php echo "<a href='loginView.php'>"?>here</a>.</td>
                 </tr>
             </table>
+
 <?php
         }
     } 
 } 
 
 ?>
+
+</div>
 </body>
 </html>
