@@ -9,6 +9,12 @@ body {
     font-family: 'VT323', monospace;
     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
 }
+#beer {
+    width: 250px;
+    position: absolute;
+    top: 400px;
+    right: 350px;
+}
 h1 {
     font-family: "微軟正黑體";
     /* font-size: 50px; */
@@ -77,6 +83,7 @@ input {
 
 </head>
 <body>
+<img id='beer' src="beer.gif">
 <h1>修改玩家資訊</h1>
 <?php
 require_once("dbconfig.php");
@@ -124,7 +131,7 @@ if ($rs = mysqli_fetch_array($result)) {
             User Name:　<input type="text" id="uname" name="uname" size="20" maxlength="20" value="<?php echo $rs['uname']; ?>" placeholder="Your Name(maxlength:20)" required="required"/><br />
         </th>
     <tr>
-        <td>
+        <td align='right'>
             <input type="submit">
         </td>
     </tr>
