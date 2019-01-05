@@ -43,7 +43,36 @@ input {
 }
 
 </style>
-
+<script type="text/javascript">
+    window.onload=function() {
+        document.getElementById("register").onsubmit=join;
+    };
+    function readURL(input){
+        if(input.files && input.files[0]){
+            var imageTagID = input.getAttribute("targetID");
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var img = document.getElementById(imageTagID);
+                img.setAttribute("src", e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function join(){
+        var engValue = document.getElementById("uid").value;
+        re = /[a-zA-Z0-9]/;
+        if(!re.test(engValue)) {
+            alert("user id有非英文及數字的字喔!");
+            return false;
+        }
+        var pwdVal = document.getElementById("pwd").value;
+        ch = /[a-zA-Z0-9]/;
+        if(!ch.test(pwdVal)) {
+            alert("password有非英文及數字的字喔!");
+            return false;
+        }
+    }
+</script>
 </head>
 <body>
 <h1>註冊</h1>
@@ -58,7 +87,7 @@ input {
             upload picture:　<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img" accept="image/gif, image/jpeg, image/png" required="required">
         </td>
         <th>
-            User ID:　<input type="text" id="uid" name="uid" size="20" maxlength="15" placeholder="Your ID(maxlength:15)" required="required"/><br />
+            User ID:　<input  type="text" id="uid" name="uid" size="20" maxlength="15" placeholder="Your ID(maxlength:15)" required="required" /><br />
         </th> 
     </tr>
 
@@ -81,27 +110,7 @@ input {
 </form>
 
 
-<script type="text/javascript">
-    function readURL(input){
-        if(input.files && input.files[0]){
-            var imageTagID = input.getAttribute("targetID");
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                var img = document.getElementById(imageTagID);
-                img.setAttribute("src", e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    // var ww, hh;
-    // function getElementHW() {
-    //     ww = document.documentElement.clientWidth;
-    //     hh = document.documentElement.clientHeight;
-    // }
-    // window.onload=function() {
-    //     var pic;
-    // };
-</script>
+
 </fieldset>
 <br/>
 <br/>
