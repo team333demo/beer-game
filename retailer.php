@@ -2,12 +2,14 @@
 require_once("dbconfig.php");
 require_once("rOrderView.php");
 // checkLogin();
+
 $currPeriod0= period();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
 <link rel="stylesheet" type="text/css" href="main.css">
@@ -37,18 +39,19 @@ $currPeriod0= period();
 <?php
 $total = 0;
 $currPeriod = 0;
-$result = orderlist();
+
+$result = orderlist(Tid());
 while ( $rs = mysqli_fetch_assoc($result)) {
-    countstock($rs['period']);
-	countcost($rs['period']);
+    countstock($rs['period'],$Tid);
+    countcost($rs['period'],$Tid);
     if($rs['period']>0){
-		$total = $total + $rs['cost'];
-	}
+        $total = $total + $rs['cost'];
+    }
     $currPeriod = $rs['period'];
     echo "<tr><td>" , $rs['period'],"</td>";
     echo"<td>" , $rs['arrival'],"</td>";
     echo"<td>" , $rs['stock'],"</td>";
-    echo"<td>" , "需求量","</td>";//需求量=下游訂單
+    echo"<td>" , $rs['demand'],"</td>";//需求量=下游訂單
     echo"<td>" , $rs['rord'],"</td>";
     echo"<td>" , $rs['cost'],"</td>";
     echo"<td>" , $total, "</td></tr>";
@@ -58,16 +61,17 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 
 <hr/>
 <?php
-	if (checkstat($currPeriod0)==1){
+    if (checkstat($currPeriod0)==1){
     echo "<form method = 'POST' action = 'retailerOrder.php'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'><br/>
         <input type = 'submit' value = '下單'> 
     </form>";
-	}else{
-		echo"等待其他玩家中";
-	}
-	?>  
+
+    }else{
+        echo"等待其他玩家中";
+    }
+    ?>  
 </body>
 </html>
