@@ -4,9 +4,7 @@ require_once("loginModel.php");
 $uname = getCurrentUserName() ;
 $uid = getCurrentUser();
 
-// checkLogin();
-?>
-<?php 
+// checkLogin(); 
 echo "當前時間：";
 echo "";
 //echo time();
@@ -31,8 +29,22 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt); 
 $rs = mysqli_fetch_assoc($result);
 
+$Tid=$rs['Tid'];
+// echo $Tid;
 if($rs['status'] =='遊戲中'){
-    header("Location:adminView.php");
+    if($rs['r']==1){
+        header('Location:fOrderView.php?Tid='.$Tid);
+    }
+    if($rs['r']==2){
+        header('Location:dOrderView.php?Tid='.$Tid);
+    }
+    if($rs['r']==3){
+        header('Location:wOrderView.php?Tid='.$Tid);
+    }
+    if($rs['r']==4){
+        header('Location:rOrderView.php?Tid='.$Tid);
+    }
+    
     //判斷是什麼角色並前往(Tid,role)
 }
 ?>
@@ -83,11 +95,7 @@ table {
     object-fit: contain;
 }
 
-
-
 </style>
-
-
 </head>
 
 <body>
@@ -150,15 +158,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
         echo"<td>" , $rs['status'],"</td>";
     else 
         echo"<td></td>";
-    
-	
-//$category=$rs['category'];
-// $likes=$rs['likes'];
-//echo '<td><a href="03.delete.php?id=', $rs['id'], '">刪</a> </td></tr>';
-// echo "<td><a href='05.like.php?id=$id'>讚($likes)</a>";
-// echo " - <a href='03.delete.php?id=$id'>刪</a>";
-// echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
-
 } 
 ?>
 </table>
