@@ -30,19 +30,19 @@ $result = mysqli_stmt_get_result($stmt);
 $rs = mysqli_fetch_assoc($result);
 
 $Tid=$rs['Tid'];
-echo $Tid;
+// echo $Tid;
 if($rs['status'] =='遊戲中'){
     if($rs['r']==1){
-        header('Location:fOrderView.php?Tid='.$Tid);
+        header('Location:factory.php?Tid='.$Tid);
     }
     if($rs['r']==2){
-        header('Location:dOrderView.php?Tid='.$Tid);
+        header('Location:distributor.php?Tid='.$Tid);
     }
     if($rs['r']==3){
-        header('Location:wOrderView.php?Tid='.$Tid);
+        header('Location:wholsaler.php?Tid='.$Tid);
     }
     if($rs['r']==4){
-        header('Location:rOrderView.php?Tid='.$Tid);
+        header('Location:retailer.php?Tid='.$Tid);
     }
     
     //判斷是什麼角色並前往(Tid,role)
