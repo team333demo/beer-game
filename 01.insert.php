@@ -61,7 +61,7 @@ if($check == 1) {
 			mysqli_stmt_execute($stmt);  //執行SQL
 			echo "team added.";
 		}
-		header('Location:insertrole.php? role='.$role);
+		header('Location:insertrole.php ?role='.$role);
 	} else {
 	echo "empty title, cannot insert.";
 	echo "<br/><a href='indexView.php'>回首頁</a>";

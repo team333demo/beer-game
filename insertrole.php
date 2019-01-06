@@ -18,7 +18,7 @@ $status = '等待中';
 $uname = getCurrentUserName();
 $uid = getCurrentUser();
 $role=(int)$_REQUEST['role'];
-echo $role;
+// echo $role;
 
 $sql = "select factory,distributor,wholesaler,retailer,Tid from `team` WHERE status= '等待中';";
 $stmt = mysqli_prepare($db, $sql );
