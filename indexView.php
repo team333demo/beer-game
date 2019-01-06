@@ -30,7 +30,7 @@ $result = mysqli_stmt_get_result($stmt);
 $rs = mysqli_fetch_assoc($result);
 
 $Tid=$rs['Tid'];
-// echo $Tid;
+echo $Tid;
 if($rs['status'] =='遊戲中'){
     if($rs['r']==1){
         header('Location:fOrderView.php?Tid='.$Tid);
