@@ -2,9 +2,9 @@
 require("dbconfig.php");
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
-// checkLogin();
-?>
-<?php 
+$uid = getCurrentUser();
+
+// checkLogin(); 
 echo "當前時間：";
 echo "";
 //echo time();
@@ -19,6 +19,34 @@ echo ("window.location.reload();");
 echo ("}"); 
 echo ("setTimeout('fresh_page()',10000);"); 
 echo ("</script>");
+
+echo ("</script>");
+
+$sql = "select uname,status,role.Tid,r from `team`,role,user WHERE role.Tid=team.Tid and role.uid=user.uid and (status= '等待中'or status= '完成' or status= '遊戲中') and uname=?";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "s",$uname);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+
+$Tid=$rs['Tid'];
+// echo $Tid;
+if($rs['status'] =='遊戲中'){
+    if($rs['r']==1){
+        header('Location:factory.php?Tid='.$Tid);
+    }
+    if($rs['r']==2){
+        header('Location:distributor.php?Tid='.$Tid);
+    }
+    if($rs['r']==3){
+        header('Location:wholsaler.php?Tid='.$Tid);
+    }
+    if($rs['r']==4){
+        header('Location:retailer.php?Tid='.$Tid);
+    }
+    
+    //判斷是什麼角色並前往(Tid,role)
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -67,11 +95,7 @@ table {
     object-fit: contain;
 }
 
-
-
 </style>
-
-
 </head>
 
 <body>
@@ -134,15 +158,6 @@ while (	$rs = mysqli_fetch_assoc($result)) {
         echo"<td>" , $rs['status'],"</td>";
     else 
         echo"<td></td>";
-    
-	
-//$category=$rs['category'];
-// $likes=$rs['likes'];
-//echo '<td><a href="03.delete.php?id=', $rs['id'], '">刪</a> </td></tr>';
-// echo "<td><a href='05.like.php?id=$id'>讚($likes)</a>";
-// echo " - <a href='03.delete.php?id=$id'>刪</a>";
-// echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
-
 } 
 ?>
 </table>
