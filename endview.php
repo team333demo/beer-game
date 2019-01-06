@@ -5,26 +5,24 @@ require("dbconfig.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 <style type="text/css">
 body {
-     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('jiang.jpg');
+    background-image: url('jiang0.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: 100%100%;
     
 }
-#time{
-    color=white;
-}
 p{
-    font-family: "微軟正黑體";
-    font-size:20px;
+    font-family: 'Special Elite', cursive;
+    font-size:40px;
     text-align: center;
 }
 fieldset {

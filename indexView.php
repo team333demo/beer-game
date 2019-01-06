@@ -51,6 +51,7 @@ if($rs['status'] =='遊戲中'){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>indexView</title>
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
@@ -65,8 +66,8 @@ body {
     background-size:cover;
 }
 p{
-    font-family: "微軟正黑體";
-    font-size:20px;
+    font-family: 'Special Elite', cursive;
+    font-size:40px;
     text-align: center;
 }
 fieldset {
@@ -79,7 +80,7 @@ fieldset {
     border-width: thick;
     flex-direction: column;
     position: absolute;
-    top:10px;
+    top:40px;
     left:270px;
 }
 table {
@@ -94,12 +95,24 @@ table {
 #preview_img {
     object-fit: contain;
 }
+#a{
+    position:absolute;
+    left:20px;
+    font-family: "微軟正黑體";
+    color:brown;
+}
+#name{
+    left:20px;
+    font-family: "微軟正黑體";
+    color:brown;
+}
 
 </style>
 </head>
 
 <body>
 <br>
+<div id="name"  class="div-left" >
 <?php echo $uname; 
 $sql = "select * from user where uname= ?";
 $stmt = mysqli_prepare($db, $sql);
@@ -110,11 +123,11 @@ $rs = mysqli_fetch_array($result);
 $img=$rs["pic"];
 $logodata = $img;
 echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,' . $logodata . '" /> ,歡迎您!<br><br>';
-?><br>
+?>
+</div><br>
 <fieldset>
-<p>my garbage 軟工 !! <hr>
-<a href="01.addform.php" ;>新增隊伍</a>  排行榜</p>
-<hr />
+<p>BEER GAME </p>
+<hr>
 </fieldset>
 <table width="500" border="1" class="">
   <tr>
@@ -125,10 +138,12 @@ echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,'
 	<td>Retailer</td>
 	<td>狀態</td>
   </tr>
-
+<div id="a"  class="div-left" >
 <?php
 // echo getCurrentUser(); 
-echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '">修改玩家資料</a>';
+echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '"><img src="cloud1.png" width="120"height="60"></a><br>';
+echo '<a href="01.addform.php?"><img src="cloud2.png" width="120"height="60"></a><br>';
+echo '<a href=""><img src="cloud3.png" width="120"height="60"></a>';
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
@@ -160,6 +175,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
         echo"<td></td>";
 } 
 ?>
+</div>
 </table>
 
 </body>
