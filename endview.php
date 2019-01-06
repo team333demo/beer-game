@@ -92,15 +92,35 @@ $i=0;
 while (	$rs = mysqli_fetch_assoc($result)) {
     $i++;
     $count--;
-    $id=$rs['Tid'];
+    $Tid=$rs['Tid'];
     echo "<tr><td>", $i,"</td>";
 	echo "<td>" , $rs['tname'],"</td>";
     echo"<td>" , $rs['cost'],"</td>";
     echo"<td>" , $count,"</td>";
+    //輸入分數
+    $sql = "update team set score=? where Tid=?";
+    $stmt = mysqli_prepare($db, $sql);
+    mysqli_stmt_bind_param($stmt, "ii",$count, $Tid);
+    mysqli_stmt_execute($stmt); //執行SQL
 } 
 ?>
 
 </table>
-<p> <a href="IndexView.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:5px;'> 回到首頁 </a></p>
+<p> <a href="disband.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:5px;'> 回到首頁 </a></p>
+<!-- <script>
+function myFunction() {
+  var x = document.getElementById("my");
+  if (x.style.display === "none") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}</script>
+<button onclick="myFunction()">回首頁</button>
+
+<div id="my">
+  你要離開這隊伍嗎?
+</div> -->
+
 </body>
 </html>
