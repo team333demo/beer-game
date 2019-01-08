@@ -3,6 +3,7 @@ require_once("dbconfig.php");
 require_once("rOrderView.php");
 // checkLogin();
 $currPeriod0= period();
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -41,8 +42,6 @@ $result = orderlist();
 while ( $rs = mysqli_fetch_assoc($result)) {
     countstock($rs['period']);
 	countcost($rs['period']);
-	//echo$rs['demand'];
-	//echo$rs['stock'];
     if($rs['period']>0){
 		$total = $total + $rs['cost'];
 	}
@@ -67,9 +66,10 @@ while ( $rs = mysqli_fetch_assoc($result)) {
         <input type = 'text' name = 'num'><br/>
         <input type = 'submit' value = '下單'> 
     </form>";
+        echo $currPeriod0;
 	}else{
-		echo"等待其他玩家中";
-	}
-	?>  
+        echo"等待其他玩家中";
+    }
+?>  
 </body>
 </html>

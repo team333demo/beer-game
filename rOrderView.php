@@ -1,6 +1,5 @@
 <?php
 require_once("dbconfig.php");
-checkLogin() ;
 require_once("retailer.php");
 function init(){
 	global $db;
@@ -126,7 +125,6 @@ function countcost ($period) {    //成本
     mysqli_stmt_execute($stmt); //執行SQL
     $result = mysqli_stmt_get_result($stmt); 
     $stock = mysqli_fetch_assoc($result);
-	//echo $stock['stock'];
 	  if ($stock['stock'] < 0) { // 欠貨
         $sql = "select (stock*(-2)) as cost from retailer 
         where period = ?";
@@ -211,4 +209,6 @@ function updatesales($period) { // 修改銷貨量
     mysqli_stmt_execute($stmt);
     return;
 }
+
+    	
 ?>

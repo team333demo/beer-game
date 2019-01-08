@@ -2,8 +2,8 @@
 require_once("dbconfig.php");
 require_once("fOrderView.php");
 // checkLogin();
-$Tid = $_REQUEST['Tid'];
 $currPeriod0= period();
+header('refresh: 5;url="factory.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,7 +19,7 @@ $currPeriod0= period();
 
 <p>Factory </p>
 <h1>當前期數:第<?php echo $currPeriod0 ?>期</h1>
-<hr/>
+<hr />
 <form method = "POST" action = "factoryOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
     <input type = "submit" value = "重置"> 
@@ -38,10 +38,10 @@ $currPeriod0= period();
 <?php
 $total = 0;
 $currPeriod = 0;
-$result = orderlist($Tid);
+$result = orderlist();
 while ( $rs = mysqli_fetch_assoc($result)) {
-    countstock($rs['period'],$Tid);
-	countcost($rs['period'],$Tid);
+    countstock($rs['period']);
+	countcost($rs['period']);
     if($rs['period']>0){
 		$total = $total + $rs['cost'];
 	}
@@ -58,8 +58,8 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 </table>
 
 <hr/>
-    <?php
-	if (checkstat($currPeriod0,$Tid)==1){
+<?php
+	if (checkstat($currPeriod0)==1){
     echo "<form method = 'POST' action = 'factoryOrder.php'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
@@ -67,8 +67,8 @@ while ( $rs = mysqli_fetch_assoc($result)) {
         <input type = 'submit' value = '下單'> 
     </form>";
 	}else{
-		echo"等待其他玩家中";
-	}
-	?>
+        echo"等待其他玩家中";
+    }
+?>  
 </body>
 </html>

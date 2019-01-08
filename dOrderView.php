@@ -1,13 +1,12 @@
 <?php
 require_once("dbconfig.php");
-checkLogin() ;
 require_once("distributor.php");
 function init(){
 	global $db;
 	$sql = "TRUNCATE TABLE distributor;";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
-	$sql = "INSERT INTO distributor(`tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`) values (0,0,0,15,0,0,1);";
+	$sql = "INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`) values (0,0,0,15,0,0,1);";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_execute($stmt); 
 	addOrder(1);
@@ -210,4 +209,5 @@ function updatesales($period) { // 修改銷貨量
     mysqli_stmt_execute($stmt);
     return;
 }
+
 ?>

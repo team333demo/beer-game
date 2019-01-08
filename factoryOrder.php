@@ -1,23 +1,22 @@
 <?php
-require_once("factory.php");
-//echo "123";
+require_once("fOrderView.php");
 $period=$_POST["curr"];
 $opr = $_POST["opr"];
 $num = (int)$_POST["num"];
-//$Tid = $_REQUEST["Tid"];
-$Tid = 1;
-echo $Tid;
 switch($opr){
     case "reset":
         init();
         break;
    case "play":
-		update($num,$period,$Tid);		
-		addOrder($period+1,$Tid);        
-		updatearrival($period,$Tid);
-		updatesales($period,$Tid);
+		update($num,$period);
+		if ($period == 3)	{
+			header("Location: endView.php");
+		} else {
+			addOrder($period+1);        
+			updatearrival($period);
+			updatesales($period);
+			header("Location: factory.php");
+		}
 		break;
-}
-header("Location: factory.php?Tid= ".$Tid);
- 
+} 
 ?>

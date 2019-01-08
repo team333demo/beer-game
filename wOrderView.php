@@ -1,6 +1,5 @@
 <?php
 require_once("dbconfig.php");
-checkLogin() ;
 require_once("wholesaler.php");
 function init(){
 	global $db;
@@ -210,4 +209,5 @@ function updatesales($period) { // 修改銷貨量
     mysqli_stmt_execute($stmt);
     return;
 }
+
 ?>

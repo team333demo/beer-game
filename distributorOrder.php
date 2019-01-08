@@ -9,12 +9,18 @@ switch($opr){
         init();		
         break;
     case "play":
-		update($num,$period);		
-		addOrder($period+1);        
-		updatearrival($period);
-		updatesales($period);
+		update($num,$period);
+		if ($period == 3)	{
+			header("Location: endView.php");
+		}else{
+			addOrder($period+1);        
+			updatearrival($period);
+			updatesales($period);
+			header("Location: distributor.php");
+		}
+		
+ 
 		break;
 }
-header("Location: distributor.php");
- 
+
 ?>
