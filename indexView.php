@@ -145,6 +145,7 @@ echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,'
 echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '"><img src="cloud1.png" width="120"height="60"></a><br>';
 echo '<a href="01.addform.php?"><img src="cloud2.png" width="120"height="60"></a><br>';
 echo '<a href="rankView.php?uid=', getCurrentUser(), '"><img src="cloud3.png" width="120"height="60"></a>';
+echo '<br/><a href="logout.php">登出</a>';
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
