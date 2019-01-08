@@ -3,12 +3,12 @@
 require("dbconfig.php");
 // $Tid=(int)$_REQUEST['Tid'];
 
-echo $Tid;
+// echo $Tid;
     $sql = "select period,demand from demand ;";
     $stmt = mysqli_prepare($db, $sql );
-    mysqli_stmt_bind_param($stmt,"i", $Tid);
+    // $stmt = mysqli_prepare($db, $sql );
     mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $result = mysqli_stmt_get_result($stmt); 
     // $rs1 = mysqli_fetch_assoc($result);
     $check=0;
     echo "<table width='500' border='1'>",

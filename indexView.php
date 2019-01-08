@@ -2,9 +2,9 @@
 require("dbconfig.php");
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
-// checkLogin();
-?>
-<?php 
+$uid = getCurrentUser();
+
+// checkLogin(); 
 echo "當前時間：";
 echo "";
 //echo time();
@@ -19,10 +19,39 @@ echo ("window.location.reload();");
 echo ("}"); 
 echo ("setTimeout('fresh_page()',10000);"); 
 echo ("</script>");
+
+echo ("</script>");
+
+$sql = "select uname,status,role.Tid,r from `team`,role,user WHERE role.Tid=team.Tid and role.uid=user.uid and (status= '等待中'or status= '完成' or status= '遊戲中') and uname=?";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "s",$uname);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+
+$Tid=$rs['Tid'];
+// echo $Tid;
+if($rs['status'] =='遊戲中'){
+    if($rs['r']==1){
+        header('Location:factory.php?Tid='.$Tid);
+    }
+    if($rs['r']==2){
+        header('Location:distributor.php?Tid='.$Tid);
+    }
+    if($rs['r']==3){
+        header('Location:wholsaler.php?Tid='.$Tid);
+    }
+    if($rs['r']==4){
+        header('Location:retailer.php?Tid='.$Tid);
+    }
+    
+    //判斷是什麼角色並前往(Tid,role)
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>indexView</title>
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
@@ -30,54 +59,60 @@ echo ("</script>");
 body {
      background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('city.png');
+    background-image: url('city.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
-    
+    background-size:cover;
 }
 p{
-    font-family: "微軟正黑體";
-    font-size:20px;
+    font-family: 'Special Elite', cursive;
+    font-size:40px;
     text-align: center;
 }
 fieldset {
-    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     margin-left: auto;
     margin-right: auto;
     width: 950px;
     border-style: solid;
     font-weight: bold;
-    border-color: white;
+    border-color: rgba(0%,0%,0%,0);
     border-width: thick;
     flex-direction: column;
     position: absolute;
-    top:10px;
+    top:40px;
     left:270px;
 }
 table {
-    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     margin-left: auto;
     margin-right: auto;
     width: 1050px;
     border-style: solid;
     font-weight: bold;
-    border-color: gainsboro;
+    border-color: rgba(0%,0%,0%,0);
     border-width: thick;
 }
 #preview_img {
     object-fit: contain;
 }
-
-
+#a{
+    position:absolute;
+    left:20px;
+    font-family: "微軟正黑體";
+    color:brown;
+}
+#name{
+    left:20px;
+    font-family: "微軟正黑體";
+    color:brown;
+}
 
 </style>
-
-
 </head>
 
 <body>
 <br>
+<div id="name"  class="div-left" >
 <?php echo $uname; 
 $sql = "select * from user where uname= ?";
 $stmt = mysqli_prepare($db, $sql);
@@ -88,11 +123,11 @@ $rs = mysqli_fetch_array($result);
 $img=$rs["pic"];
 $logodata = $img;
 echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,' . $logodata . '" /> ,歡迎您!<br><br>';
-?><br>
+?>
+</div><br>
 <fieldset>
-<p>my garbage 軟工 !! <hr>
-<a href="01.addform.php" ;>新增隊伍</a>  排行榜</p>
-<hr />
+<p>BEER GAME </p>
+<hr>
 </fieldset>
 <table width="500" border="1" class="">
   <tr>
@@ -103,10 +138,12 @@ echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,'
 	<td>Retailer</td>
 	<td>狀態</td>
   </tr>
-
+<div id="a"  class="div-left" >
 <?php
 // echo getCurrentUser(); 
-echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '">修改玩家資料</a>';
+echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '"><img src="cloud1.png" width="120"height="60"></a><br>';
+echo '<a href="01.addform.php?"><img src="cloud2.png" width="120"height="60"></a><br>';
+echo '<a href=""><img src="cloud3.png" width="120"height="60"></a>';
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
@@ -136,17 +173,9 @@ while (	$rs = mysqli_fetch_assoc($result)) {
         echo"<td>" , $rs['status'],"</td>";
     else 
         echo"<td></td>";
-    
-	
-//$category=$rs['category'];
-// $likes=$rs['likes'];
-//echo '<td><a href="03.delete.php?id=', $rs['id'], '">刪</a> </td></tr>';
-// echo "<td><a href='05.like.php?id=$id'>讚($likes)</a>";
-// echo " - <a href='03.delete.php?id=$id'>刪</a>";
-// echo " - <a href='04.editform.php?id=$id'>改</a> </td></tr>";
-
 } 
 ?>
+</div>
 </table>
 
 </body>

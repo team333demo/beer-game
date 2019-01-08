@@ -61,7 +61,7 @@ $uname = getCurrentUserName() ;
   }
   #h{
     position:absolute;
-    left:25px;
+    left:0px;
   }
 </style>
 
@@ -69,8 +69,8 @@ $uname = getCurrentUserName() ;
 <div id="til"  class="div-left" >
 <?php echo 'Admin : ',$uname; ?>
 <!-- <p>my garbage 軟工 !!</p> -->
-<a href = "setdemand.php?Tid="$Tid><img src="pic/start.png" width="150"height="110"></a>　　　
-<a href ='history.php'><img src="pic/history.png"id="h" width="100" height="100"></a>
+<a href = "setdemand.php"><img src="pic/beer2.png" width="150"height="110"></a>　　　
+<a href ='history.php'><img src="pic/book.png"id="h" width="150" height="100"></a>
 </div>
 <body>
 <div id="content">
