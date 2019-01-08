@@ -9,7 +9,7 @@ $db = mysqli_connect($host, $user, $pass, $dbName) or die('Error with MySQL conn
 mysqli_query($db,"SET NAMES utf8"); //選擇編碼
 
 function checkLogin() {
-    echo $_SESSION["uid"];
+    // echo $_SESSION["uid"];
     if ( ! isset($_SESSION["uid"]) or $_SESSION["uid"] <= 0) {
             header("Location: loginView.php");
     }
