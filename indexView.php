@@ -54,7 +54,7 @@ if($rs['status'] =='遊戲中'){
 <head>
 <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>indexView</title>
+<title>開始畫面</title>
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
 <style type="text/css">
 body {
@@ -127,7 +127,7 @@ echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,'
 ?>
 </div><br>
 <fieldset>
-<p>BEER GAME </p>
+<p>🍻 BEER GAME 🍻 </p>
 <hr>
 </fieldset>
 <table width="500" border="1" class="">

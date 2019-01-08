@@ -9,7 +9,7 @@ $tid = $_REQUEST["tid"];
 <head>
 <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>無標題文件</title>
+<title>遊戲結束</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 <style type="text/css">
 body {
@@ -64,7 +64,7 @@ table {
 <body>
 
 <fieldset>
-<p>my garbage 軟工 !!<hr><div id="aaa">統計圖表-<?php echo "<a href='chartView_stock.php?tid=$tid' >"?>庫存</a>、<?php echo "<a href='chartView_less.php?tid=$tid' >"?>欠貨</a>、<?php echo "<a href='chartView_cost.php?tid=$tid' >"?>累計成本</a>　　<?php echo '<a href="playerRecorderView.php?uid=', getCurrentUser(), '">'?>參與紀錄</a>　　<?php echo '<a href="rankView.php?uid=', getCurrentUser(), '">'?>排行榜</a></div></hr></p>
+<p>🍻 BEER GAME 🍻<hr><div id="aaa">統計圖表-<?php echo "<a href='chartView_stock.php?tid=$tid' >"?>庫存</a>、<?php echo "<a href='chartView_less.php?tid=$tid' >"?>欠貨</a>、<?php echo "<a href='chartView_cost.php?tid=$tid' >"?>累計成本</a>　　<?php echo '<a href="playerRecorderView.php?uid=', getCurrentUser(), '">'?>參與紀錄</a>　　<?php echo '<a href="rankView.php?uid=', getCurrentUser(), '">'?>排行榜</a></div></hr></p>
 </fieldset>
 <hr />
 <table width="200" border="1" class="">

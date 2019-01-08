@@ -10,7 +10,7 @@ $currPeriod0= period($Tid);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>無標題文件</title>
+<title>Factory</title>
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
 
 <style type="text/css">
@@ -21,7 +21,7 @@ width: 400px;
 margin: 30px auto;
 }
 body{
-    background-image: url('playbackground.jpg');
+    background-image: url('pic/playbackground.jpg');
     background-repeat:no-repeat;
     background-size:cover;
     background-attachment:fixed;
@@ -56,18 +56,22 @@ border: 3px solid 	#880000;
 hr{
 border: 3px solid 	#880000;
 }
+#w{
+    font-family:Microsoft JhengHei;
+    color:	#880000;
+}
 </style>
 </head>
 
 <body>
 <div id="view">
 <font><p>Factory </p></font>
-<img src="factory.png" style="height:100px;width:140px;position:absolute;left:660px;top:20px;"/>
-<font1><h1>當前期數:第<?php echo $currPeriod0 ?>期</h1></font1>
+<img src="pic/factory.png" style="height:100px;width:140px;position:absolute;left:800px;top:30px;"/>
+<font1><h1>當前期數:第 <?php echo $currPeriod0 ?> 期</h1></font1>
 <hr/>
 <form method = "POST" action = "factoryOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
-    <input type = "submit" value = "重置"> 
+    <div style="text-align:right;"><input type=image src=pic/resetf.png width="50"height="50" onclick="submit()" title="重置"></div>
 </form>
 <table width="200" border="1" class="table" >
   <tr>
@@ -101,8 +105,10 @@ while ( $rs = mysqli_fetch_assoc($result)) {
     }
 ?>
 </table>
-
+<br><br>
 <hr/>
+<br>
+<div id="w">
     <?php
 	if (checkstat($currPeriod0,$Tid)==1){
     echo "<form method = 'POST' action = 'factoryOrder.php?Tid'=$Tid>
@@ -115,6 +121,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 		echo"等待其他玩家中";
 	}
 	?>
+    </div>
 </div>
 </body>
 </html>

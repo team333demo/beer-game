@@ -3,7 +3,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>input form</title>
+<title>新增隊伍</title>
 <style type="text/css">
 body {
     font-family: 'VT323', monospace;
@@ -39,12 +39,12 @@ select{
 
 </head>
 <body>
-<p>add new team !! </p>
+<p>Add New Team !!</p>
 <hr />
 
 <table width="200" border="1">
   <tr>
-    <td style='text-align:center;'>隊伍名稱</td>
+    <td style='text-align:center;'>Team Name</td>
 	  <td>player</td>
 
   </tr>

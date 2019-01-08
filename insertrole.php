@@ -2,12 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
+<title>新增成功</title>
+<style type="text/css">
+body {
+    font-family: 'VT323', monospace;
+    background-image: url('pic/background.jpg');
+    background-position : 50% 100%;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+p{
+    font-family: 'Special Elite', cursive;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size:40px;
+}
+</style>
 </head>
 
 <body>
 
-<p>insert new team</p>
+<p>Insert New Team🤩</p>
 <hr />
 <?php
 require('dbconfig.php');
@@ -37,6 +55,6 @@ while($rs = mysqli_fetch_assoc($result)){
 }
              
 ?>
-<a href="indexView.php">回首頁</a>
+<a href="indexView.php" style="text-align:center;white;box-shadow:1px 1px 3px gray;border-radius:3px;font-size:20px;position:absolute;left:48%;top:40%;">回首頁</a>
 </body>
 </html>

@@ -11,7 +11,7 @@ $currPeriod0= period($Tid);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>無標題文件</title>
+<title>Wholesaler</title>
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
@@ -20,7 +20,7 @@ width: 400px;
 margin: 30px auto;
 }
 body{
-    background-image: url('playbackground.jpg');
+    background-image: url('pic/playbackground.jpg');
     background-repeat:no-repeat;
     background-size:cover;
     background-attachment:fixed;
@@ -55,6 +55,10 @@ border: 3px solid #4d3300;
 hr{
 border: 3px solid #4d3300;
 }
+#w{
+    font-family:Microsoft JhengHei;
+    color:		#4d3300;
+}
 </style>
 </head>
 
@@ -62,12 +66,12 @@ border: 3px solid #4d3300;
 
 <div id="view">
 <font><p>Wholesaler </p></font>
-<img src="wholesaler.png" style="height:150px;width:190px;position:absolute;left:660px;top:20px;"/>
-<font1><h1>當前期數:第<?php echo $currPeriod0 ?>期</h1></font1>
+<img src="pic/wholesaler.png" style="height:150px;width:190px;position:absolute;left:800px;top:30px;"/>
+<font1><h1>當前期數:第 <?php echo $currPeriod0 ?> 期</h1></font1>
 <hr />
 <form method = "POST" action = "wholesalerOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
-    <input type = "submit" value = "重置"> 
+    <div style="text-align:right;"><input type=image src=pic/resetw.png width="50"height="50" onclick="submit()" title="重置"></div>
 </form>
 <table width="200" border="1" class="table" >
   <tr>
@@ -102,8 +106,9 @@ while ( $rs = mysqli_fetch_assoc($result)) {
     }
 ?>
 </table>
-
+<br><br>
 <hr/>
+<div id="w">
     <?php
 	if (checkstat($currPeriod0,$Tid)==1){
     echo "<form method = 'POST' action = 'wholesalerOrder.php?Tid=$Tid'>
@@ -116,6 +121,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 		echo"等待其他玩家中";
 	}
 	?>
+    </div>
 </div>
 </body>
 </html>
