@@ -118,7 +118,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
         <input type = 'submit' value = '下單'> 
     </form>";
 	}else{
-		echo"等待其他玩家中";
+		echo"等待其他玩家中……";
 	}
 	?>
     </div>
