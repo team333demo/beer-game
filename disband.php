@@ -9,7 +9,7 @@ $sql = "delete from `demand`";
 $stmt = mysqli_prepare($db, $sql );
 // mysqli_stmt_bind_param($stmt);
 mysqli_stmt_execute($stmt);
-
+$tid = $_REQUEST["Tid"];
 
 //隊伍狀態改結束
 $sql = "select * from `team` WHERE status= '遊戲中';";
@@ -28,5 +28,5 @@ while($rs = mysqli_fetch_assoc($result)){
     // header('Location:indexView.php');
 
 }
-header("Location:endview.php");
+header("Location:endview.php".$tid);
 ?>
