@@ -60,7 +60,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <hr/>
 	<?php
 	if (checkstat($currPeriod0,$Tid)==1){
-    echo "<form method = 'POST' action = 'factoryOrder.php ?Tid=$Tid'>
+    echo "<form method = 'POST' action = 'distributorOrder.php ?Tid=$Tid'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'><br/>

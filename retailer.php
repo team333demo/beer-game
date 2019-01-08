@@ -2,8 +2,8 @@
 require_once("dbconfig.php");
 require_once("rOrderView.php");
 // checkLogin();
-$currPeriod0= period();
-
+$Tid = $_REQUEST['Tid'];
+$currPeriod0= period($Tid);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -38,10 +38,10 @@ $currPeriod0= period();
 <?php
 $total = 0;
 $currPeriod = 0;
-$result = orderlist();
+$result = orderlist($Tid);
 while ( $rs = mysqli_fetch_assoc($result)) {
-    countstock($rs['period']);
-	countcost($rs['period']);
+    countstock($rs['period'],$Tid);
+	countcost($rs['period'],$Tid);
     if($rs['period']>0){
 		$total = $total + $rs['cost'];
 	}
@@ -58,18 +58,17 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 </table>
 
 <hr/>
-<?php
-	if (checkstat($currPeriod0)==1){
-    echo "<form method = 'POST' action = 'retailerOrder.php'>
+	<?php
+	if (checkstat($currPeriod0,$Tid)==1){
+    echo "<form method = 'POST' action = 'retailerOrder.php ?Tid=$Tid'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'><br/>
         <input type = 'submit' value = '下單'> 
     </form>";
-        echo $currPeriod0;
 	}else{
-        echo"等待其他玩家中";
-    }
-?>  
+		echo"等待其他玩家中";
+	}
+	?>
 </body>
 </html>

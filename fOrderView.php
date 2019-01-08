@@ -1,16 +1,16 @@
 <?php
 require_once("dbconfig.php");
-checkLogin() ;
 require_once("factory.php");
 function init($Tid){
 	global $db;
-	$sql = "TRUNCATE TABLE factory;";
+	$sql = "TRUNCATE TABLE factory where Tid = ?;";
 	$stmt = mysqli_prepare($db, $sql);
-	mysqli_stmt_execute($stmt); 
+	mysqli_stmt_bind_param($stmt, "i",$Tid);
+	mysqli_stmt_execute($stmt); 	
 	$sql = "INSERT INTO factory(`Tid`,`ford`,`period`,`stock`,`arrival`,`cost`,`fstat`) values (?,0,0,15,0,0,1);";
 	$stmt = mysqli_prepare($db, $sql);
-    mysqli_stmt_bind_param($stmt, "i",$Tid);
-    mysqli_stmt_execute($stmt); 
+	mysqli_stmt_bind_param($stmt, "i",$Tid);
+	mysqli_stmt_execute($stmt); 
 	addOrder(1,$Tid);
 	return;
 }
@@ -41,7 +41,7 @@ function orderlist($Tid){
 }
 function period($Tid) {
     global $db;
-    $sql = "select max(period) as currPeriod from factory where Tid=?";
+    $sql = "select max(period) as currPeriod from factory where Tid = ?";
     $stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "i",$Tid);
     mysqli_stmt_execute($stmt); //執行SQL

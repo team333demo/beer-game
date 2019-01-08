@@ -3,24 +3,22 @@ require_once("rOrderView.php");
 $period=$_POST["curr"];
 $opr = $_POST["opr"];
 $num = (int)$_POST["num"];
+$Tid = $_REQUEST["Tid"];
 switch($opr){
     case "reset":
-        init();
-		
+        init($Tid);
         break;
-    case "play":
-		update($num,$period);	
-		if ($period == 3)	{
-			header("Location: endView.php");
+   case "play":
+		update($num,$period,$Tid);	
+		if ($period == 3){
+			header("Location: disband.php");
 		}else{
-			addOrder($period+1);        
-			updatearrival($period);
-			updatesales($period);
-			header("Location: retailer.php");
-		}
-		
+			addOrder($period+1,$Tid);     
+			updatearrival($period,$Tid);
+			updatesales($period,$Tid);
+			header("Location: retailer.php?Tid=".$Tid);
+		}	
 		break;
 }
-
  
 ?>
