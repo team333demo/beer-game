@@ -36,7 +36,7 @@ style: text-shadow:3px 3px 3px #cccccc;
 font-family:'Cabin Sketch', cursive;
 }
 font1{
-font-size: 12pt; 
+font-size: 14pt; 
 color: green; 
 style: text-shadow:3px 3px 3px #cccccc;
 font-family:Microsoft JhengHei;
@@ -45,12 +45,13 @@ font-family:Microsoft JhengHei;
 td{
 width: 200px;
 border: 3px solid green;
-font-size:13;
+font-size:18;
 color:green;
 font-family:Microsoft JhengHei;
 }
 .table{
 border: 3px solid green;
+text-align:center;
 }
 hr{
 border-top: 3px solid green;
@@ -73,7 +74,7 @@ border-top: 3px solid green;
     <input type = "hidden" name="opr" value="reset"/>
     <div style="text-align:right;"><input type=image src=pic/resetd.png width="50"height="50" onclick="submit()" title="重置"></div>
 </form>
-<table width="200" border="1" class="" >
+<table width="550" border="1" class="" >
   <tr>
     <td>週次</td>
     <td>到貨量</td>
@@ -107,6 +108,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 </table>
 <br><br>
 <hr/>
+<br>
 <div id="w">
 	<?php
 	if (checkstat($currPeriod0,$Tid)==1){
