@@ -104,22 +104,11 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 ?>
 
 </table>
-<p> <a href="disband.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
+<p> <a href="indexView.php" onclick="return confirm('使否確定要離開隊伍？');"style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
 回到首頁 </a></p>
-<!-- <script>
-function myFunction() {
-  var x = document.getElementById("my");
-  if (x.style.display === "none") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}</script>
-<button onclick="myFunction()">回首頁</button>
 
-<div id="my">
-  你要離開這隊伍嗎?
-</div> -->
+<!-- <a href="indexView.php"  onclick="return confirm('使否確定要離開隊伍？');">回首頁</a> -->
+
 
 </body>
 </html>
