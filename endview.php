@@ -1,6 +1,8 @@
 <?php
-require("dbconfig.php");
-// checkLogin();
+require_once("dbconfig.php");
+require_once("loginModel.php");
+checkLogin();
+$tid = $_REQUEST["tid"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,7 +64,7 @@ table {
 <body>
 
 <fieldset>
-<p>my garbage 軟工 !!<hr><div id="aaa">統計圖表　　參與紀錄　　排行榜</div></hr></p>
+<p>my garbage 軟工 !!<hr><div id="aaa">統計圖表-<?php echo "<a href='chartView_stock.php?tid=$tid' >"?>庫存</a>、<?php echo "<a href='chartView_less.php?tid=$tid' >"?>欠貨</a>、<?php echo "<a href='chartView_cost.php?tid=$tid' >"?>累計成本</a>　　<?php echo '<a href="playerRecorderView.php?uid=', getCurrentUser(), '">'?>參與紀錄</a>　　<?php echo '<a href="rankView.php?uid=', getCurrentUser(), '">'?>排行榜</a></div></hr></p>
 </fieldset>
 <hr />
 <table width="200" border="1" class="">
