@@ -12,12 +12,16 @@ switch($opr){
         init($Tid);
         break;
    case "play":
-		update($num,$period,$Tid);		
-		addOrder($period+1,$Tid);        
-		updatearrival($period,$Tid);
-		updatesales($period,$Tid);
+		update($num,$period,$Tid);	
+		if ($period == 3){
+			header("Location: endView.php");
+		}else{
+			addOrder($period+1,$Tid);     
+			updatearrival($period,$Tid);
+			updatesales($period,$Tid);
+			header("Location: factory.php?Tid=".$Tid);
+		}	
 		break;
 }
-header("Location: factory.php?Tid=".$Tid);
- 
+
 ?>
