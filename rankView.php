@@ -79,7 +79,7 @@ a:hover {
 </head>
 <body>
 <h1>排行榜</h1>
-<img id='beer' src="beer_rank.gif">
+<img id='beer' src="pic/beer_rank.gif">
 <?php
 require_once("dbconfig.php");
 checkLogin() ;
