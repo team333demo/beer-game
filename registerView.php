@@ -88,7 +88,7 @@ input {
 </head>
 <body>
 <h1>註冊</h1>
-<img id='beer' src="beer.gif">
+<img id='beer' src="pic/beer.gif">
 <form id="register" action="registerControl.php" method="POST" enctype="multipart/form-data">
     <fieldset id = "topFieldset"> 
     <legend id = "require">Required Fields</legend>
@@ -115,7 +115,7 @@ input {
         </th>
     <tr>
         <td  align='right'>
-            <input id='ok' type="image" src="ok.png">
+            <input id='ok' type="image" src="pic/ok.png">
             <!-- <input type="submit"> -->
         </td>
     </tr>
@@ -127,7 +127,10 @@ input {
 </fieldset>
 <br/>
 <br/>
-
+<br/>
+<br/>
+<br/>
+<br/>
 </body>
 
 </html>

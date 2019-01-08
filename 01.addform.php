@@ -7,7 +7,7 @@
 <style type="text/css">
 body {
     font-family: 'VT323', monospace;
-    background-image: url('background.jpg');
+    background-image: url('pic/background.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
@@ -66,8 +66,8 @@ select{
     </label></td>
 	<tr><tr>
 	    <td  colspan="2"; style='text-align:center;'><label>
-            <br><a href="indexView.php?" ><img src="back.png" width="50"height="50" ; title="返回"></a>
-            <input type=image src=send.png width="50"height="50" onclick="submit()" title="送出">
+            <br><a href="indexView.php?" ><img src="pic/back.png" width="50"height="50" ; title="返回"></a>
+            <input type=image src=pic/send.png width="50"height="50" onclick="submit()" title="送出">
     </label></td></tr></tr>
 	</form>
   </tr>

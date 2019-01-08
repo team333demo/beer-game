@@ -15,7 +15,7 @@ p {
     position: absolute;
     /* color: darkorchid;RGB(189,215,238); */
     color: #083399;
-    bottom: 200px;
+    bottom: 280px;
     left: 140px;
     font-weight: bold;
     text-shadow: -2px -2px white, 2px 2px #444;
@@ -23,7 +23,7 @@ p {
 #beer {
     width: 250px;
     position: absolute;
-    bottom: 200px;
+    bottom: 250px;
     left: 115px;
 }
 h1 {
@@ -40,7 +40,7 @@ form {
     font-size: 40px;
 }
 img {
-    width: 1100px;
+    width: 83%;
 }
 input {
     font-size: 20px;
@@ -66,8 +66,8 @@ a:hover {
 
 </head>
 <body>
-<img id='beer' src="beer_jump.gif">
-<img style="display:block; margin:auto;" src="home4.jpg">
+<img id='beer' src="pic/beer_jump.gif">
+<img style="display:block; margin:auto;" src="pic/home4.jpg">
 <p>啤酒<br/>遊戲</p>
 <form method="post" action="loginControl.php">
 <h1>Login</h1>
@@ -76,7 +76,7 @@ a:hover {
 <tr><td>Password : <input type="password" name="pwd" size="17"></td></tr>
 <tr><td id='r' align='right'>    
     <a href='registerView.php'>註冊</a>
-    <input id='login' type="image" src="login.gif">
+    <input id='login' type="image" src="pic/login.gif">
 </tr></td>
 </form>
 </body>

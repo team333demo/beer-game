@@ -89,7 +89,7 @@ input {
 
 </head>
 <body>
-<img id='beer' src="beer.gif">
+<img id='beer' src="pic/beer.gif">
 <h1>修改玩家資訊</h1>
 <?php
 require_once("dbconfig.php");
@@ -138,7 +138,7 @@ if ($rs = mysqli_fetch_array($result)) {
         </th>
     <tr>
         <td align='right'>
-            <input id='ok' type="image" src="ok.png">
+            <input id='ok' type="image" src="pic/ok.png">
             <!-- <input type="submit"> -->
         </td>
     </tr>

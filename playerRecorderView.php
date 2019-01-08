@@ -67,7 +67,7 @@ td {
 </head>
 <body>
 <h1><span><?php echo getCurrentUserName()?></span>的歷史資料</h1>
-<img id='beer' src="snoopy.gif">
+<img id='beer' src="pic/snoopy.gif">
 <?php
 require_once("dbconfig.php");
 require_once("loginModel.php");

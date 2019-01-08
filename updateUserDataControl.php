@@ -38,7 +38,7 @@ td {
 </head>
 <body>
 <div>
-<img id='beer' src="cheer1.gif">
+<img id='beer' src="pic/cheer1.gif">
 <?php
 require("dbconfig.php");
 require_once("loginModel.php");

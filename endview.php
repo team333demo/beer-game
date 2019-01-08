@@ -13,7 +13,7 @@ require("dbconfig.php");
 body {
     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('jiang0.jpg');
+    background-image: url('pic/jiang0.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;

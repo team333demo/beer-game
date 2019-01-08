@@ -60,7 +60,7 @@ if($rs['status'] =='遊戲中'){
 body {
     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
-    background-image: url('city.jpg');
+    background-image: url('pic/city.jpg');
     background-position : 50% 100%;
     background-attachment:fixed;
     background-repeat:no-repeat;
@@ -142,9 +142,9 @@ echo '<img id="preview_img" width="70" height="70" src="data:'.'jpeg'.';base64,'
 <div id="a"  class="div-left" >
 <?php
 // echo getCurrentUser(); 
-echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '"><img src="cloud1.png" width="120"height="60"></a><br>';
-echo '<a href="01.addform.php?"><img src="cloud2.png" width="120"height="60"></a><br>';
-echo '<a href="rankView.php?uid=', getCurrentUser(), '"><img src="cloud3.png" width="120"height="60"></a>';
+echo '<a href="updateUserDataView.php?uid=', getCurrentUser(), '"><img src="pic/cloud1.png" width="120"height="60"></a><br>';
+echo '<a href="01.addform.php?"><img src="pic/cloud2.png" width="120"height="60"></a><br>';
+echo '<a href=""><img src="pic/cloud3.png" width="120"height="60"></a>';
 echo '<br/><a href="logout.php">登出</a>';
 $sql = "select * from `team` WHERE status= '等待中'or status= '完成'or status= '遊戲中';";
 $stmt = mysqli_prepare($db, $sql );
