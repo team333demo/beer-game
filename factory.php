@@ -11,20 +11,65 @@ $currPeriod0= period($Tid);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <title>無標題文件</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<!--<link rel="stylesheet" type="text/css" href="main.css">-->
 
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+#view{
+width: 400px;
+/*border: 1px dotted red;*/
+margin: 30px auto;
+}
+body{
+    background-image: url('playbackground.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    
+}
+/*body{
+    background-color:skyblue;
+}*/
+font{
+font-size: 30pt; 
+color: 	#880000; 
+style: text-shadow:3px 3px 3px #cccccc;
+font-family:'Cabin Sketch', cursive;
+}
+font1{
+font-size: 12pt; 
+color: 	#880000; 
+style: text-shadow:3px 3px 3px #cccccc;
+font-family:Microsoft JhengHei;
+}
+
+td{
+width: 200px;
+border: 3px solid 	#880000;
+font-size:13;
+color:	#880000;
+font-family:Microsoft JhengHei;
+}
+.table{
+border: 3px solid 	#880000;
+}
+hr{
+border: 3px solid 	#880000;
+}
+</style>
 </head>
 
 <body>
-
-<p>Factory </p>
-<h1>當前期數:第<?php echo $currPeriod0 ?>期</h1>
+<div id="view">
+<font><p>Factory </p></font>
+<img src="factory.png" style="height:100px;width:140px;position:absolute;left:660px;top:20px;"/>
+<font1><h1>當前期數:第<?php echo $currPeriod0 ?>期</h1></font1>
 <hr/>
 <form method = "POST" action = "factoryOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
     <input type = "submit" value = "重置"> 
 </form>
-<table width="200" border="1" class="" >
+<table width="200" border="1" class="table" >
   <tr>
     <td>週次</td>
     <td>到貨量</td>
@@ -70,5 +115,6 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 		echo"等待其他玩家中";
 	}
 	?>
+</div>
 </body>
 </html>
