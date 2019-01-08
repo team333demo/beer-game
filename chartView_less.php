@@ -5,7 +5,7 @@
    </head>
    <body style="height: 100%; margin: 0">
         <?php
-        $tid = 1;
+        $tid = $_REQUEST['tid'];
         require_once("chartModel.php");
         $result = factory($tid);
         $counter = 0;
