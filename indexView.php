@@ -39,7 +39,7 @@ if($rs['status'] =='遊戲中'){
         header('Location:distributor.php?Tid='.$Tid);
     }
     if($rs['r']==3){
-        header('Location:wholsaler.php?Tid='.$Tid);
+        header('Location:wholesaler.php?Tid='.$Tid);
     }
     if($rs['r']==4){
         header('Location:retailer.php?Tid='.$Tid);
