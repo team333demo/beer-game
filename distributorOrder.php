@@ -18,11 +18,8 @@ switch($opr){
 		addOrder($period+1,$Tid);        
 		updatearrival($period,$Tid);
 		updatesales($period,$Tid);
-			header("Location: distributor.php?Tid=".$Tid);
-		}
-		
- 
+		header("Location: distributor.php?Tid=".$Tid);
+		}		
 		break;
 }
-
 ?>

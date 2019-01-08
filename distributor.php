@@ -36,7 +36,6 @@ $currPeriod0= period($Tid);
   </tr>
   
 <?php
-//$total = 0;
 $total = 0;
 $currPeriod = 0;
 $result = orderlist($Tid);
