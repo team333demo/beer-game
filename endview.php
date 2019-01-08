@@ -28,7 +28,7 @@ p{
     text-align: center;
 }
 fieldset {
-    color: white;
+    color: #007799;
     margin-left: auto;
     margin-right: auto;
     width: 700px;
@@ -53,8 +53,12 @@ table {
 }
 #aaa{
     position:absolute;
-    left:500px;
+    left:36%;
     text-align:center;
+    background-color:#EEFFBB;
+    box-shadow:1px 1px 3px gray;
+    border:3px #EEFFBB dashed;
+    border-radius:3px;
 }
 
 
