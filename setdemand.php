@@ -1,6 +1,43 @@
-<a href ='adminView.php'>往返</a><br/><br/>
 <?php
 require("dbconfig.php");
+require_once("loginModel.php");
+$uname = getCurrentUserName() ;
+// checkLogin();
+?>
+<style type="text/css">
+  body {
+    width: 700px; margin:30px auto;
+    opacity:0.9;
+    background-color: #F2FFFF;
+    text-align:center;
+  }
+
+  #til {
+    font-weight: bold;
+    position:absolute;
+    left:90px;
+    font-family: "微軟正黑體";
+    color:black;
+    font-size: 20px;
+    text-align:middle;
+  }
+  table {
+    margin: 10px auto; border: 1px outset #ccc; width:600px;
+    color:black; 
+    background-color:rgb(255, 239, 204); 
+    border:2px outset #ccc; 
+    padding:10px;
+  }
+
+  </style>
+ <div id="til"  class="div-left">
+<?php echo 'Admin : ',$uname; ?><br><br>
+設定遊戲期數<br><br>
+<a href ='adminView.php'>往返</a>
+</div>
+
+ <div id='a'>
+<?php
 // $Tid=(int)$_REQUEST['Tid'];
 
 // echo $Tid;
@@ -29,8 +66,9 @@ require("dbconfig.php");
         <input name='demand2' type='text' id='demand2' /></td></tr></table><br/>
         <input type='submit' name='Submit' value='送出' /></form>";
     }
-        
+     
 ?>
+</a>
 <!-- <table width="500" border="1" class="">
     <tr>
       <td>期數</td>
