@@ -93,7 +93,7 @@ input {
 <h1>修改玩家資訊</h1>
 <?php
 require_once("dbconfig.php");
-
+checkLogin() ;
 $userID = (String)$_GET['uid'];
 if ($userID == null) {
 	echo "empty ID";

@@ -5,6 +5,11 @@ require('dbconfig.php');
 $d1 =(int)$_POST['demand1'];
 $d2 =(int)$_POST['demand2'];
 
+$sql = "insert into demand (period,demand) values (0,0);";
+        $stmt = mysqli_prepare($db, $sql );
+        // mysqli_stmt_bind_param($stmt);
+        mysqli_stmt_execute($stmt);
+
 for($i = 1; $i <= 50; $i++){
         $demand = rand($d1,$d2);
         $sql = "insert into demand (period,demand) values (?,?);";

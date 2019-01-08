@@ -1,5 +1,6 @@
 <?php
 require("dbconfig.php");
+checkLogin() ;
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
 $uid = getCurrentUser();
@@ -33,16 +34,16 @@ $Tid=$rs['Tid'];
 // echo $Tid;
 if($rs['status'] =='遊戲中'){
     if($rs['r']==1){
-        header('Location:factory.php?Tid='.$Tid);
+        header('Location:factoryOrder.php?Tid='.$Tid);
     }
     if($rs['r']==2){
-        header('Location:distributor.php?Tid='.$Tid);
+        header('Location:distributorOrder.php?Tid='.$Tid);
     }
     if($rs['r']==3){
-        header('Location:wholsaler.php?Tid='.$Tid);
+        header('Location:wholesalerOrder.php?Tid='.$Tid);
     }
     if($rs['r']==4){
-        header('Location:retailer.php?Tid='.$Tid);
+        header('Location:retailerOrder.php?Tid='.$Tid);
     }
     
     //判斷是什麼角色並前往(Tid,role)
@@ -57,7 +58,7 @@ if($rs['status'] =='遊戲中'){
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
 <style type="text/css">
 body {
-     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
     background-image: url('city.jpg');
     background-position : 50% 100%;

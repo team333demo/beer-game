@@ -104,7 +104,8 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 ?>
 
 </table>
-<p> <a href="disband.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:5px;'> 回到首頁 </a></p>
+<p> <a href="disband.php" style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
+回到首頁 </a></p>
 <!-- <script>
 function myFunction() {
   var x = document.getElementById("my");

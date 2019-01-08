@@ -1,5 +1,6 @@
 <?php
 require("dbconfig.php");
+checkLogin() ;
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
 // checkLogin();
@@ -71,6 +72,7 @@ $uname = getCurrentUserName() ;
 <!-- <p>my garbage 軟工 !!</p> -->
 <a href = "setdemand.php"><img src="pic/beer2.png" width="150"height="110"></a>　　　
 <a href ='history.php'><img src="pic/book.png"id="h" width="150" height="100"></a>
+<a href ='logout.php'><img src="pic/book.png"id="h" width="150" height="100"></a>
 </div>
 <body>
 <div id="content">

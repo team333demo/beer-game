@@ -2,6 +2,7 @@
 require_once("dbconfig.php");
 require_once("fOrderView.php");
 // checkLogin();
+$Tid = $_REQUEST['Tid'];
 $currPeriod0= period();
 ?>
 
@@ -18,7 +19,7 @@ $currPeriod0= period();
 
 <p>Factory </p>
 <h1>當前期數:第<?php echo $currPeriod0 ?>期</h1>
-<hr />
+<hr/>
 <form method = "POST" action = "factoryOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
     <input type = "submit" value = "重置"> 
@@ -37,10 +38,10 @@ $currPeriod0= period();
 <?php
 $total = 0;
 $currPeriod = 0;
-$result = orderlist();
+$result = orderlist($Tid);
 while ( $rs = mysqli_fetch_assoc($result)) {
-    countstock($rs['period']);
-	countcost($rs['period']);
+    countstock($rs['period'],$Tid);
+	countcost($rs['period'],$Tid);
     if($rs['period']>0){
 		$total = $total + $rs['cost'];
 	}
@@ -58,7 +59,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 
 <hr/>
     <?php
-	if (checkstat($currPeriod0)==1){
+	if (checkstat($currPeriod0,$Tid)==1){
     echo "<form method = 'POST' action = 'factoryOrder.php'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
