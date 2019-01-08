@@ -12,7 +12,7 @@ switch($opr){
     case "play":
 		update($num,$period,$Tid);
 		if ($period == 10)	{
-			header("Location: disband.php".$Tid);
+			header("Location: disband.php?Tid=".$Tid);
 		}else{
 		addOrder($period+1,$Tid);        
 		updatearrival($period,$Tid);

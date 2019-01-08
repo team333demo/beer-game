@@ -28,5 +28,5 @@ while($rs = mysqli_fetch_assoc($result)){
     // header('Location:indexView.php');
 
 }
-header("Location:endview.php".$tid);
+header("Location:endview.php?=".$tid);
 ?>
