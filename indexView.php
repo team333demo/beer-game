@@ -34,16 +34,16 @@ $Tid=$rs['Tid'];
 // echo $Tid;
 if($rs['status'] =='遊戲中'){
     if($rs['r']==1){
-        header('Location:factory.php?Tid='.$Tid);
+        header('Location:factoryOrder.php?Tid='.$Tid);
     }
     if($rs['r']==2){
-        header('Location:distributor.php?Tid='.$Tid);
+        header('Location:distributorOrder.php?Tid='.$Tid);
     }
     if($rs['r']==3){
-        header('Location:wholsaler.php?Tid='.$Tid);
+        header('Location:wholesalerOrder.php?Tid='.$Tid);
     }
     if($rs['r']==4){
-        header('Location:retailer.php?Tid='.$Tid);
+        header('Location:retailerOrder.php?Tid='.$Tid);
     }
     
     //判斷是什麼角色並前往(Tid,role)
