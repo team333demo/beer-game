@@ -1,5 +1,6 @@
 <?php
 require_once("dbconfig.php");
+checkLogin() ;
 require_once("factory.php");
 function init(){
 	global $db;

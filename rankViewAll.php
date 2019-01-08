@@ -81,6 +81,7 @@ a:hover {
 <img id='beer' src="beer_rank.gif">
 <?php
 require_once("dbconfig.php");
+checkLogin() ;
 require_once("loginModel.php");
 require_once("rankModel.php");
 $userID = getCurrentUser();

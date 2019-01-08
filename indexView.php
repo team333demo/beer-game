@@ -1,5 +1,6 @@
 <?php
 require("dbconfig.php");
+checkLogin() ;
 require_once("loginModel.php");
 $uname = getCurrentUserName() ;
 $uid = getCurrentUser();
