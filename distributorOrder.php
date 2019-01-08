@@ -13,7 +13,7 @@ switch($opr){
     case "play":
 		update($num,$period,$Tid);
 		if ($period == 10)	{
-			header("Location: endView.php");
+			header("Location: endView.php".$Tid);
 		}else{
 		addOrder($period+1,$Tid);        
 		updatearrival($period,$Tid);
