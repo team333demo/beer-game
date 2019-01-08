@@ -10,7 +10,7 @@ mysqli_query($db,"SET NAMES utf8"); //選擇編碼
 
 function checkLogin() {
     echo $_SESSION["uid"];
-    if ( ! isset($_SESSION["uid"]) or $_SESSION["uid"] = Null) {
+    if ( ! isset($_SESSION["uid"]) or $_SESSION["uid"] == Null) {
             header("Location: loginView.php");
     }
 }
