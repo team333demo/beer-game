@@ -57,7 +57,7 @@ if($rs['status'] =='遊戲中'){
 <!--<link rel="stylesheet" type="text/css" href="main.css">-->
 <style type="text/css">
 body {
-     background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
+    background-image: linear-gradient(to bottom right, #ffe6ff, #ffe6e6, #ffffe6, #e6ffe6, #e6ffff, #e6e6ff);
     font-family: 'VT323', monospace;
     background-image: url('city.jpg');
     background-position : 50% 100%;
