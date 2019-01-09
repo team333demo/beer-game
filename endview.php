@@ -110,10 +110,10 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 ?>
 
 </table>
-<p> <a href="indexView.php" onclick="return confirm('使否確定要離開隊伍？');"style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
+<p> <a href="indexView.php" onclick="return confirm('是否確定要離開隊伍？');"style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
 回到首頁 </a></p>
 
-<!-- <a href="indexView.php"  onclick="return confirm('使否確定要離開隊伍？');">回首頁</a> -->
+<!-- <a href="indexView.php"  onclick="return confirm('是否確定要離開隊伍？');">回首頁</a> -->
 
 
 </body>
