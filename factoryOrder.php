@@ -9,11 +9,11 @@ $Tid = $_REQUEST["Tid"];
 echo $Tid;
 switch($opr){
     case "reset":
-        init();		
+        init($Tid);		
         break;
     case "play":
 		update($num,$period,$Tid);
-		if ($period == 10)	{
+		if ($period == 50)	{
 			header("Location: disband.php?Tid=".$Tid);
 		}else{
 		addOrder($period+1,$Tid);        
@@ -25,6 +25,5 @@ switch($opr){
  
 		break;
 }
-header("Location: factory.php?Tid=".$Tid);
  
 ?>

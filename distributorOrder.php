@@ -12,7 +12,7 @@ switch($opr){
         break;
     case "play":
 		update($num,$period,$Tid);
-		if ($period == 10)	{
+		if ($period == 50)	{
 			header("Location: endView.php?Tid=".$Tid);
 		}else{
 		addOrder($period+1,$Tid);        

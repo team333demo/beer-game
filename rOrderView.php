@@ -7,7 +7,7 @@ function init($Tid){
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "i",$Tid);
 	mysqli_stmt_execute($stmt); 
-	$sql = "INSERT INTO retailer(`tid`,`rord`,`period`,`stock`,`arrival`,`cost`,`rstat`) values (?,0,0,15,0,0,1);";
+	$sql = "INSERT INTO retailer(`Tid`,`rord`,`period`,`stock`,`arrival`,`cost`,`rstat`) values (?,0,0,15,0,0,1);";
 	$stmt = mysqli_prepare($db, $sql);
 	mysqli_stmt_bind_param($stmt, "i",$Tid);
 	mysqli_stmt_execute($stmt); 
@@ -32,9 +32,9 @@ function update($ord,$period,$Tid){
 }
 function orderlist($Tid){
 	global $db;
-	$sql = "select retailer.*,demand.demand from `retailer`,`demand` where (retailer.period = demand.period) and retailer.Tid = ? AND demand.Tid= ?";
+	$sql = "select retailer.*,demand.demand from `retailer`,`demand` where (retailer.period = demand.period) and retailer.Tid = ? ";
 	$stmt = mysqli_prepare($db, $sql );
-	mysqli_stmt_bind_param($stmt, "ii",$Tid,$Tid);
+	mysqli_stmt_bind_param($stmt, "i",$Tid);
 	mysqli_stmt_execute($stmt);
 	$result = mysqli_stmt_get_result($stmt);
 	return $result;
@@ -179,9 +179,16 @@ function updatearrival($period,$Tid) { // 修改到貨量
 }
 function updatesales($period,$Tid) { // 修改銷貨量
  global $db; 
-    $sql = "select stock, demand.demand , arrival from retailer,demand where period = ? and Tid = ?";
+    $sql = "select stock arrival from retailer where period = ? and Tid = ?";
     $stmt = mysqli_prepare($db, $sql);
     mysqli_stmt_bind_param($stmt, "ii",$period,$Tid);
+    mysqli_stmt_execute($stmt); //執行SQL
+    $result = mysqli_stmt_get_result($stmt);
+    $current = mysqli_fetch_assoc($result);
+
+    $sql = "select  demand.demand from demand where period = ? ";
+    $stmt = mysqli_prepare($db, $sql);
+    mysqli_stmt_bind_param($stmt, "i",$period);
     mysqli_stmt_execute($stmt); //執行SQL
     $result = mysqli_stmt_get_result($stmt);
     $current = mysqli_fetch_assoc($result);

@@ -37,7 +37,7 @@ style: text-shadow:3px 3px 3px #cccccc;
 font-family:'Cabin Sketch', cursive;
 }
 font1{
-font-size: 14pt; 
+font-size: 12pt; 
 color: 	#880000; 
 style: text-shadow:3px 3px 3px #cccccc;
 font-family:Microsoft JhengHei;
@@ -46,13 +46,12 @@ font-family:Microsoft JhengHei;
 td{
 width: 200px;
 border: 3px solid 	#880000;
-font-size:18;
+font-size:13;
 color:	#880000;
 font-family:Microsoft JhengHei;
 }
-table{
+.table{
 border: 3px solid 	#880000;
-text-align:center;
 }
 hr{
 border: 3px solid 	#880000;
@@ -74,7 +73,7 @@ border: 3px solid 	#880000;
     <input type = "hidden" name="opr" value="reset"/>
     <div style="text-align:right;"><input type=image src=pic/resetf.png width="50"height="50" onclick="submit()" title="重置"></div>
 </form>
-<table width="550" border="1">
+<table width="200" border="1" class="table" >
   <tr>
     <td>週次</td>
     <td>到貨量</td>
@@ -112,7 +111,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <div id="w">
     <?php
 	if (checkstat($currPeriod0,$Tid)==1){
-    echo "<form method = 'POST' action = 'factoryOrder.php?Tid'=$Tid>
+    echo "<form method = 'POST' action = 'factoryOrder.php?Tid='.$Tid>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'><br/>
