@@ -16,7 +16,7 @@ $currPeriod0= period($Tid);
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 #view{
-width: 400px;
+width: 600px;
 /*border: 1px dotted red;*/
 margin: 30px auto;
 }
@@ -25,7 +25,6 @@ body{
     background-repeat:no-repeat;
     background-size:cover;
     background-attachment:fixed;
-    
 }
 /*body{
     background-color:skyblue;
@@ -37,7 +36,7 @@ style: text-shadow:3px 3px 3px #cccccc;
 font-family:'Cabin Sketch', cursive;
 }
 font1{
-font-size: 12pt; 
+font-size: 14pt; 
 color: 	#880000; 
 style: text-shadow:3px 3px 3px #cccccc;
 font-family:Microsoft JhengHei;
@@ -46,12 +45,13 @@ font-family:Microsoft JhengHei;
 td{
 width: 200px;
 border: 3px solid 	#880000;
-font-size:13;
+font-size:18;
 color:	#880000;
 font-family:Microsoft JhengHei;
 }
 .table{
 border: 3px solid 	#880000;
+text-align:center;
 }
 hr{
 border: 3px solid 	#880000;
@@ -66,14 +66,14 @@ border: 3px solid 	#880000;
 <body>
 <div id="view">
 <font><p>Factory </p></font>
-<img src="pic/factory.png" style="height:100px;width:140px;position:absolute;left:800px;top:30px;"/>
+<img src="pic/factory.png" style="height:150px;width:190px;position:absolute;left:850px;top:30px;"/>
 <font1><h1>當前期數:第 <?php echo $currPeriod0 ?> 期</h1></font1>
 <hr/>
 <form method = "POST" action = "factoryOrder.php">
     <input type = "hidden" name="opr" value="reset"/>
     <div style="text-align:right;"><input type=image src=pic/resetf.png width="50"height="50" onclick="submit()" title="重置"></div>
 </form>
-<table width="200" border="1" class="table" >
+<table width="600" border="1" class="table" >
   <tr>
     <td>週次</td>
     <td>到貨量</td>
@@ -114,8 +114,8 @@ while ( $rs = mysqli_fetch_assoc($result)) {
     echo "<form method = 'POST' action = 'factoryOrder.php?Tid='.$Tid>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
-        <input type = 'text' name = 'num'><br/>
-        <input type = 'submit' value = '下單'> 
+        <input type = 'text' name = 'num'>
+        <input type=image src='pic/buy.png' width='56' height='50' onclick='submit()' title='下單'>
     </form>";
 	}else{
 		echo"等待其他玩家中……";
