@@ -110,13 +110,17 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <br><br>
 <hr/>
 <div id="w">
-    <?php
+	<?php
+	//echo $currPeriod0;
+		if($currPeriod0==0){
+			insertfirst($Tid);			
+		}
 	if (checkstat($currPeriod0,$Tid)==1){
-    echo "<form method = 'POST' action = 'wholesalerOrder.php?Tid='$Tid>
+    echo "<form method = 'POST' action = 'wholesalerOrder.php ?Tid=$Tid'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'>
-        <input type=image src='pic/buy.png' width='56' height='50' onclick='submit()' title='下單'> 
+        <input type=image src='pic/buy.png' width='56' height='50' onclick='submit()' title='下單'>
     </form>";
 	}else{
 		echo"等待其他玩家中……";

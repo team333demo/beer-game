@@ -110,10 +110,9 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <hr/>
 <div id="w">
 	<?php
-	echo $currPeriod0;
+	//echo $currPeriod0;
 		if($currPeriod0==0){
-			insertfirst($Tid);
-			
+			insertfirst($Tid);			
 		}
 	if (checkstat($currPeriod0,$Tid)==1){
     echo "<form method = 'POST' action = 'distributorOrder.php ?Tid=$Tid'>

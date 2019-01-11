@@ -109,9 +109,13 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <hr/>
 <br>
 <div id="w">
-    <?php
+	<?php
+	//echo $currPeriod0;
+		if($currPeriod0==0){
+			insertfirst($Tid);			
+		}
 	if (checkstat($currPeriod0,$Tid)==1){
-    echo "<form method = 'POST' action = 'factoryOrder.php?Tid='.$Tid>
+    echo "<form method = 'POST' action = 'factoryOrder.php ?Tid=$Tid'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
         <input type = 'hidden' name='opr' value='play'/>
         <input type = 'text' name = 'num'>

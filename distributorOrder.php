@@ -5,8 +5,6 @@ $period=$_POST["curr"];
 $opr = $_POST["opr"];
 $num = (int)$_POST["num"];
 $Tid = $_REQUEST["Tid"];
-echo $Tid;
-
 switch($opr){
     case "reset":
         init();		

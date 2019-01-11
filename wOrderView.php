@@ -14,6 +14,20 @@ function init($Tid){
 	addOrder(1,$Tid);
 	return;
 }
+function insertfirst($Tid){ //新增一行 空白資料
+ global $db; 
+ $sql ="INSERT INTO wholesaler(`Tid`,`word`,`period`,`stock`,`arrival`,`cost`,`wstat`,wsale) values (?,0,0,15,0,0,1,0);" ; 
+ $stmt = mysqli_prepare($db, $sql);
+ mysqli_stmt_bind_param($stmt, "i",$Tid);
+ mysqli_stmt_execute($stmt);
+ 
+ $sql ="INSERT INTO wholesaler(`Tid`,`word`,`period`,`stock`,`arrival`,`cost`,`wstat`,wsale) values (?,0,1,15,0,15,0,0);" ; 
+ $stmt = mysqli_prepare($db, $sql);
+ mysqli_stmt_bind_param($stmt, "i",$Tid);
+ mysqli_stmt_execute($stmt);
+ 
+ return ;
+}
 function addOrder($period,$Tid){ //新增一行 空白資料
 	global $db;	
 	$sql ="insert into wholesaler (`period`,`Tid`) values (?,?) " ;	
