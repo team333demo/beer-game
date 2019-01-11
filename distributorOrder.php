@@ -6,19 +6,22 @@ $opr = $_POST["opr"];
 $num = (int)$_POST["num"];
 $Tid = $_REQUEST["Tid"];
 echo $Tid;
+
 switch($opr){
     case "reset":
         init();		
         break;
     case "play":
+	// echo $period;
+
 		update($num,$period,$Tid);
-		if ($period == 50)	{
+		if ($period == 3)	{
 			header("Location: endView.php?Tid=".$Tid);
 		}else{
 		addOrder($period+1,$Tid);        
 		updatearrival($period,$Tid);
 		updatesales($period,$Tid);
-		header("Location: distributor.php?Tid=".$Tid);
+		header("Location: distributor.php?Tid=$Tid");
 		}		
 		break;
 }

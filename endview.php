@@ -2,7 +2,7 @@
 require_once("dbconfig.php");
 require_once("loginModel.php");
 checkLogin();
-$tid = $_REQUEST["tid"];
+$tid = $_REQUEST["Tid"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -110,7 +110,7 @@ while (	$rs = mysqli_fetch_assoc($result)) {
 ?>
 
 </table>
-<p> <a href="indexView.php" onclick="return confirm('是否確定要離開隊伍？');"style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
+<p> <a href="disband.php" onclick="return confirm('是否確定要離開隊伍？');"style='background-color:white;box-shadow:1px 1px 3px gray;border:3px white dashed;border-radius:3px;font-size:20px;'> 
 回到首頁 </a></p>
 
 <!-- <a href="indexView.php"  onclick="return confirm('是否確定要離開隊伍？');">回首頁</a> -->

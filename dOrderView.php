@@ -3,16 +3,36 @@ require_once("dbconfig.php");
 require_once("distributor.php");
 function init($Tid){
  global $db;
- $sql = "TRUNCATE TABLE distributor where Tid = ?;";
+ $sql = "DELETE FROM `distributor` WHERE Tid = ?";
  $stmt = mysqli_prepare($db, $sql);
  mysqli_stmt_bind_param($stmt, "i",$Tid);
  mysqli_stmt_execute($stmt); 
- $sql = "INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`) values (?,0,0,15,0,0,1);";
+ //加一行
+ $sql = "INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`,dsale) values (?,0,0,15,0,0,1,0);";
  $stmt = mysqli_prepare($db, $sql);
  mysqli_stmt_bind_param($stmt, "i",$Tid);
  mysqli_stmt_execute($stmt); 
+ //再加一行
+ /*$sql = "INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`) values (?,0,0,15,0,15,1);";
+ $stmt = mysqli_prepare($db, $sql);
+ mysqli_stmt_bind_param($stmt, "i",$Tid);
+ mysqli_stmt_execute($stmt);*/
  addOrder(1,$Tid);
  return;
+}
+function insertfirst($Tid){ //新增一行 空白資料
+ global $db; 
+ $sql ="INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`,dsale) values (?,0,0,15,0,0,1,0);" ; 
+ $stmt = mysqli_prepare($db, $sql);
+ mysqli_stmt_bind_param($stmt, "i",$Tid);
+ mysqli_stmt_execute($stmt);
+ 
+ $sql ="INSERT INTO distributor(`Tid`,`dord`,`period`,`stock`,`arrival`,`cost`,`dstat`,dsale) values (?,0,1,15,0,15,0,0);" ; 
+ $stmt = mysqli_prepare($db, $sql);
+ mysqli_stmt_bind_param($stmt, "i",$Tid);
+ mysqli_stmt_execute($stmt);
+ 
+ return ;
 }
 function addOrder($period,$Tid){ //新增一行 空白資料
  global $db; 

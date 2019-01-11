@@ -110,6 +110,11 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 <hr/>
 <div id="w">
 	<?php
+	echo $currPeriod0;
+		if($currPeriod0==0){
+			insertfirst($Tid);
+			
+		}
 	if (checkstat($currPeriod0,$Tid)==1){
     echo "<form method = 'POST' action = 'distributorOrder.php ?Tid=$Tid'>
         <input type = 'hidden' name='curr' value=$currPeriod/>
@@ -121,7 +126,7 @@ while ( $rs = mysqli_fetch_assoc($result)) {
 		echo"等待其他玩家中……";
 	}
 	?>
-    </div>
+    </div>	
 </div>
 </body>
 </html>

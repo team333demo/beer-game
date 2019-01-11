@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>註冊</title>
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+<p>註冊</p>
+<form id="register" action="register.php" method="POST" enctype="multipart/form-data">
+    User ID:<input type="text" id="uid" name="uid" size="20" maxlength="15" placeholder="Your ID(maxlength:15)" required="required"/><br />
+    User Password:<input type="text" id="pwd" name="pwd" size="20" minlength="8" maxlength="15" placeholder="Your PWD(8~15)" required="required"/><br />
+    User Name:<input type="text" id="uname" name="uname" size="20" maxlength="20" placeholder="Your Name(maxlength:20)" required="required"/><br />
+    upload picture:<input type="file" id = "pic" onchange="readURL(this)" targetID="preview_img" name="img" accept="image/gif, image/jpeg, image/png" required="required">
+    <img id="preview_img" width="300" height="300" src="#" /><br />
+    <input type="submit">
+</form>
+<script type="text/javascript">
+    function readURL(input){
+        if(input.files && input.files[0]){
+            var imageTagID = input.getAttribute("targetID");
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var img = document.getElementById(imageTagID);
+                img.setAttribute("src", e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    var ww, hh;
+    function getElementHW() {
+        ww = document.documentElement.clientWidth;
+        hh = document.documentElement.clientHeight;
+    }
+    window.onload=function() {
+        var pic;
+    };
+</script>
+</body>
+
+</html>
