@@ -72,18 +72,18 @@ td {
 require_once("dbconfig.php");
 require_once("loginModel.php");
 require_once("playerRecorderModel.php");
-$userID = getCurrentUser();
-$trs = allTid($userID);
+$userName = getCurrentUserName();
+$trs = allTid($userName);
 ?>
 <div>
 <table >
 <tr><td id='team'>team</td><td id='role'>role</td><td id='score'>score</td></tr>
 <?php
 while ($tid =  mysqli_fetch_assoc($trs)) {
-    $frs = factory($userID);
-    $drs = distributor($userID);
-    $wrs = wholesaler($userID);
-    $rrs = retailer($userID);
+    $frs = factory($userName);
+    $drs = distributor($userName);
+    $wrs = wholesaler($userName);
+    $rrs = retailer($userName);
     while ($f = mysqli_fetch_assoc($frs)) {
         if ($tid['Tid'] == $f['Tid']) {
             echo "<tr><td id='tn'>", $f['tname'],
