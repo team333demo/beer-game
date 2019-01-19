@@ -87,6 +87,45 @@ $result = mysqli_stmt_get_result($stmt);
 $rs = mysqli_fetch_assoc($result);
 $count = $rs['count(Tid)']+1;
 
+$sql = "select max(cost) as cost from factory WHERE Tid = ?;";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "i",$tid);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+$fcost = $rs['cost'];
+
+$sql = "select max(cost) as cost from distributor WHERE Tid = ?;";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "i",$tid);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+$dcost = $rs['cost'];
+
+$sql = "select max(cost) as cost from wholesaler WHERE Tid = ?;";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "i",$tid);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+$wcost = $rs['cost'];
+
+$sql = "select max(cost) as cost from retailer WHERE Tid = ?;";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "i",$tid);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt); 
+$rs = mysqli_fetch_assoc($result);
+$rcost = $rs['cost'];
+
+$totalcost = $fcost + $dcost + $wcost + $rcost;
+
+$sql = "update team set cost = ? where Tid = ?";
+$stmt = mysqli_prepare($db, $sql );
+mysqli_stmt_bind_param($stmt, "ii", $totalcost, $tid);
+mysqli_stmt_execute($stmt);
+
 $sql = "select * from `team` WHERE status= '遊戲中'ORDER BY cost DESC";
 $stmt = mysqli_prepare($db, $sql );
 mysqli_stmt_execute($stmt);
